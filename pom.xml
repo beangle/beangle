@@ -1,0 +1,178 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.beangle</groupId>
+	<artifactId>beangle</artifactId>
+	<packaging>pom</packaging>
+	<version>2</version>
+	<name>Beangle Software Group</name>
+
+	<description>
+	The Beangle Software Group provides agile java development scaffold and toolkits.
+	</description>
+
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License</name>
+			<url>http://www.gnu.org/licenses/lgpl.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>chaostone</id>
+			<name>duantihua</name>
+			<email>chaostone.duan@gmail.com</email>
+			<url>http://chaostone.spaces.live.com/</url>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<organization>
+		<name>The Beangle Software Group</name>
+		<url>https://github.com/beangle/beangle-core</url>
+	</organization>
+
+	<url>https://github.com/beangle/beangle-core</url>
+	
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/beangle/beangle-core/issues</url>
+	</issueManagement>
+
+	<scm>
+		<connection>scm:git:git://github.com/beangle/beangle.git</connection>
+		<developerConnection>scm:git:git@github.com:beangle/beangle.git</developerConnection>
+		<url>https://github.com/beangle/beangle</url>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>beangle.release</id>
+			<name>Beangle Releases</name>
+			<url>svn:https://beangle.googlecode.com/svn/maven/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>beangle.snapshot</id>
+			<name>Beangle Snapshots</name>
+			<url>svn:https://beangle.googlecode.com/svn/maven/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+        <extensions>
+            <extension>
+                <groupId>org.jvnet.wagon-svn</groupId>
+                <artifactId>wagon-svn</artifactId>
+                <version>1.9</version>
+            </extension>
+        </extensions>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>1.5</source>
+						<target>1.5</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.5</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.4.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.3.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.3.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.1</version>
+					<dependencies>
+		              <dependency>
+		                <groupId>org.apache.maven.scm</groupId>
+		                <artifactId>maven-scm-provider-gitexe</artifactId>
+		                <version>1.4</version>
+		              </dependency>
+		            </dependencies>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.1.2</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.6</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>2.6</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.beangle</groupId>
+							<artifactId>beangle-codeconv</artifactId>
+							<version>1.0</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<version>2.8</version>
+					<configuration>
+						<downloadSources>true</downloadSources>
+						<useProjectReferences>true</useProjectReferences>
+						<projectNameTemplate>[artifactId]</projectNameTemplate>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>2.3.4</version>
+					<configuration>
+						<instructions>
+							<Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
+							<Bundle-Version>${project.version}</Bundle-Version>
+							<Export-Package>!${bundle.namespace}*internal*,${bundle.namespace}.*;version="${project.version}"</Export-Package>
+							<Private-Package>${bundle.namespace}*internal*</Private-Package>
+							<Import-Package>*;resolution:=optional</Import-Package>
+							<_include>-osgi.bnd</_include>
+						</instructions>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
