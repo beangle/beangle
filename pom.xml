@@ -10,6 +10,10 @@
 	The Beangle Software Group provides agile java/jvm based scaffold and toolkits.
 	</description>
 
+	<modules>
+		<module>org.beangle.codeconv</module>
+	</modules>
+
 	<licenses>
 		<license>
 			<name>GNU Lesser General Public License</name>
@@ -48,6 +52,11 @@
 		<url>https://github.com/beangle/beangle</url>
 	</scm>
 
+	<properties>
+		<slf4j.version>1.6.1</slf4j.version>
+		<servletapi.version>2.4</servletapi.version>
+	</properties>
+
 	<distributionManagement>
 		<repository>
 			<id>beangle.release</id>
@@ -60,6 +69,27 @@
 			<url>svn:https://beangle.googlecode.com/svn/maven/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servletapi.version}</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
         <extensions>
