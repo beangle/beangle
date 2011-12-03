@@ -3,8 +3,8 @@
 	<groupId>org.beangle</groupId>
 	<artifactId>beangle</artifactId>
 	<packaging>pom</packaging>
-	<version>2</version>
-	<name>Beangle Software Group</name>
+	<version>3</version>
+	<name>Beangle Software Parent</name>
 
 	<description>
 	The Beangle Software Group provides agile java/jvm based scaffold and toolkits.
@@ -53,8 +53,12 @@
 	</scm>
 
 	<properties>
+		<scala.version>2.9.1</scala.version>
+		<scalatest.version>1.6.1</scalatest.version>
 		<slf4j.version>1.6.1</slf4j.version>
-		<servletapi.version>2.4</servletapi.version>
+		<servletapi.version>2.5</servletapi.version>
+		<junit.version>4.10</junit.version>
+		<mockito.version>1.8.5</mockito.version>
 	</properties>
 
 	<distributionManagement>
@@ -72,10 +76,16 @@
 
 	<dependencyManagement>
 		<dependencies>
+			 <dependency>
+				<groupId>org.scala-lang</groupId>
+				<artifactId>scala-library</artifactId>
+				<version>${scala.version}</version>
+			</dependency>
 			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
+				<groupId>org.scalatest</groupId>
+				<artifactId>scalatest_2.9.1</artifactId>
+				<version>${scalatest.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -88,19 +98,57 @@
 				<version>${servletapi.version}</version>
 				<scope>provided</scope>
 			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>${mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
-        <extensions>
-            <extension>
-                <groupId>org.jvnet.wagon-svn</groupId>
-                <artifactId>wagon-svn</artifactId>
-                <version>1.9</version>
-            </extension>
-        </extensions>
+		<sourceDirectory>${basedir}/src/main/scala</sourceDirectory>
+		<testSourceDirectory>${basedir}/src/test/scala</testSourceDirectory>
+		<extensions>
+			<extension>
+                		<groupId>org.jvnet.wagon-svn</groupId>
+               			<artifactId>wagon-svn</artifactId>
+				<version>1.9</version>
+			</extension>
+		</extensions>
 
 		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<version>2.15.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<scalaVersion>${scala.version}</scalaVersion>
+					<args>
+						<arg>-deprecation</arg>
+						<arg>-unchecked</arg>
+					</args>					
+					<jvmArgs>
+						<jvmArg>-Xms200m</jvmArg>
+						<jvmArg>-Xmx1024m</jvmArg>
+					</jvmArgs>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -184,6 +232,20 @@
 					<downloadSources>true</downloadSources>
 					<useProjectReferences>true</useProjectReferences>
 					<projectNameTemplate>[artifactId]</projectNameTemplate>
+					<sourceIncludes>
+						<sourceInclude>**/*.scala</sourceInclude>
+					</sourceIncludes>
+					<buildcommands>
+						<buildcommand>ch.epfl.lamp.sdt.core.scalabuilder</buildcommand>
+					</buildcommands>
+					<projectnatures>
+						<projectnature>ch.epfl.lamp.sdt.core.scalanature</projectnature>
+						<projectnature>org.eclipse.jdt.core.javanature</projectnature>
+					</projectnatures>
+					<classpathContainers>
+						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+						<classpathContainer>ch.epfl.lamp.sdt.launching.SCALA_CONTAINER</classpathContainer>
+					</classpathContainers>
 				</configuration>
 			</plugin>
 			<plugin>
