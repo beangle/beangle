@@ -62,7 +62,7 @@
           <role>Contributor</role>
         </roles>
     </developer>
-  <developers>
+  </developers>
   
   <distributionManagement>
     <snapshotRepository>
