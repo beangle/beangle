@@ -24,13 +24,13 @@
 
   <url>https://github.com/beangle/beangle</url>
 
-	<scm>
-		<connection>scm:git:git://github.com/beangle/beangle.git</connection>
-		<developerConnection>scm:git:git@github.com:beangle/beangle.git</developerConnection>
-		<url>https://github.com/beangle/beangle</url>
-	  <tag>HEAD</tag>
+  <scm>
+    <connection>scm:git:git://github.com/beangle/beangle.git</connection>
+    <developerConnection>scm:git:git@github.com:beangle/beangle.git</developerConnection>
+    <url>https://github.com/beangle/beangle</url>
+    <tag>HEAD</tag>
   </scm>
-	
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <scala.version>2.9.2</scala.version>
@@ -298,6 +298,23 @@
             <Import-Package>*;resolution:=optional</Import-Package>
             <_include>-osgi.bnd</_include>
           </instructions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.mycila.maven-license-plugin</groupId>
+        <artifactId>maven-license-plugin</artifactId>
+        <version>1.9.0</version>
+        <configuration>
+          <strictCheck>true</strictCheck>
+          <includes>
+            <include>src/**/java/**</include>
+          </includes>
+          <excludes>
+            <exclude>src/**/package-info.java</exclude>
+          </excludes>
+          <mapping>
+            <java>SLASHSTAR_STYLE</java>
+          </mapping>
         </configuration>
       </plugin>
     </plugins>
