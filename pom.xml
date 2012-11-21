@@ -55,12 +55,12 @@
       </roles>
     </developer>
     <developer>
-        <name>Jia Qian</name>
-        <id>chanjarster</id>
-        <email>chanjarster at gmail.com</email>
-        <roles>
-          <role>Contributor</role>
-        </roles>
+      <name>Jia Qian</name>
+      <id>chanjarster</id>
+      <email>chanjarster at gmail.com</email>
+      <roles>
+        <role>Contributor</role>
+      </roles>
     </developer>
   </developers>
   
@@ -380,7 +380,6 @@
             <ruleset>/rulesets/logging-java.xml</ruleset>
             <ruleset>/rulesets/logging-jakarta-commons.xml</ruleset>
             <!--<ruleset>/rulesets/optimizations.xml</ruleset>-->
-            
             <ruleset>/rulesets/braces.xml</ruleset>
             <ruleset>/rulesets/design.xml</ruleset>
             <!--<ruleset>/rulesets/javabeans.xml</ruleset>-->
