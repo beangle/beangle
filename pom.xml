@@ -3,7 +3,7 @@
   <groupId>org.beangle</groupId>
   <artifactId>beangle-parent</artifactId>
   <packaging>pom</packaging>
-  <version>6</version>
+  <version>7-SNAPSHOT</version>
   <name>Beangle Software Parent</name>
 
   <description>
@@ -33,7 +33,7 @@
     <connection>scm:git:git://github.com/beangle/beangle.git</connection>
     <developerConnection>scm:git:git@github.com:beangle/beangle.git</developerConnection>
     <url>https://github.com/beangle/beangle</url>
-    <tag>6</tag>
+    <tag>HEAD</tag>
   </scm>
   
   <properties>
