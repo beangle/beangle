@@ -33,12 +33,6 @@
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j.version}</version>
       </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>jcl-over-slf4j</artifactId>
-        <version>${slf4j.version}</version>
-        <scope>test</scope>
-      </dependency>
       <!--log-->
       <dependency>
         <groupId>ch.qos.logback</groupId>
@@ -70,12 +64,6 @@
         <artifactId>h2</artifactId>
         <version>${h2.version}</version>
       </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>99.0-does-not-exist</version>
-      <scope>test</scope>
-    </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -90,11 +78,7 @@
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
+      <artifactId>slf4j-api</artifactId>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
