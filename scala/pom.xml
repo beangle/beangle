@@ -15,7 +15,7 @@
     <scalatest.version>2.0.M5b</scalatest.version>
     <slf4j.version>1.6.6</slf4j.version>
     <logback.version>1.0.7</logback.version>
-    <servletapi.version>2.4</servletapi.version>
+    <servletapi.version>3.1.0</servletapi.version>
     <mockito.version>1.9.5</mockito.version>
     <h2.version>1.3.172</h2.version>
   </properties>
@@ -48,7 +48,7 @@
       </dependency>
       <dependency>
         <groupId>javax.servlet</groupId>
-        <artifactId>servlet-api</artifactId>
+        <artifactId>javax.servlet-api</artifactId>
         <version>${servletapi.version}</version>
         <scope>provided</scope>
       </dependency>
@@ -111,6 +111,8 @@
           <args>
             <arg>-deprecation</arg>
             <arg>-unchecked</arg>
+            <arg>-feature</arg>
+            <arg>-target:jvm-1.6</arg>
           </args>
           <jvmArgs>
             <jvmArg>-Xms200m</jvmArg>
