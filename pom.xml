@@ -46,7 +46,7 @@
     <developer>
       <name>Tihua Duan</name>
       <id>chaostone</id>
-      <email>duantihua at gmail.com</email>
+      <email>duantihua@gmail.com</email>
       <roles>
         <role>Committer</role>
       </roles>
@@ -122,7 +122,6 @@
               <manifestEntries>
                 <Built-By>Beangle</Built-By>
               </manifestEntries>
-              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
             </archive>
           </configuration>
         </plugin>
