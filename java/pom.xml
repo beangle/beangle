@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.beangle</groupId>
-    <artifactId>beangle-parent</artifactId>
+    <artifactId>beangle</artifactId>
     <version>11-SNAPSHOT</version>
   </parent>
   <groupId>org.beangle</groupId>
-  <artifactId>beangle-java-parent</artifactId>
+  <artifactId>beangle-java</artifactId>
   <packaging>pom</packaging>
   <name>Beangle Java Parent</name>
   

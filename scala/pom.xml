@@ -2,16 +2,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.beangle</groupId>
-    <artifactId>beangle-parent</artifactId>
+    <artifactId>beangle</artifactId>
     <version>11-SNAPSHOT</version>
   </parent>
   <groupId>org.beangle</groupId>
-  <artifactId>beangle-scala-parent</artifactId>
+  <artifactId>beangle-scala</artifactId>
   <packaging>pom</packaging>
   <name>Beangle Scala Parent</name>
   
   <properties>
-    <scala.version>2.10.2</scala.version>
+    <scala.version>2.10.3</scala.version>
     <scalatest.version>2.0</scalatest.version>
     <slf4j.version>1.6.6</slf4j.version>
     <logback.version>1.0.7</logback.version>
