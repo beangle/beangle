@@ -151,11 +151,12 @@
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
         <version>3.1.6</version>
-        <executions>
+	<executions>
           <execution>
             <goals>
               <goal>compile</goal>
               <goal>testCompile</goal>
+              <goal>doc-jar</goal>
             </goals>
           </execution>
         </executions>
