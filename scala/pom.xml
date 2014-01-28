@@ -12,12 +12,13 @@
   
   <properties>
     <scala.version>2.10.3</scala.version>
-    <scalatest.version>2.0</scalatest.version>
+    <scalatest.version>2.1.RC1</scalatest.version>
     <slf4j.version>1.6.6</slf4j.version>
     <logback.version>1.0.7</logback.version>
     <servletapi.version>3.1.0</servletapi.version>
     <mockito.version>1.9.5</mockito.version>
     <h2.version>1.3.174</h2.version>
+    <junit.version>4.11</junit.version>
   </properties>
 
   <dependencyManagement>
@@ -47,6 +48,12 @@
         <scope>test</scope>
       </dependency>
       <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
         <version>${servletapi.version}</version>
@@ -71,6 +78,10 @@
     <dependency>
       <groupId>org.scalatest</groupId>
       <artifactId>scalatest_2.10</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
@@ -126,9 +137,20 @@
       </plugin>
 
       <plugin>
-        <groupId>org.scala-tools</groupId>
-        <artifactId>maven-scala-plugin</artifactId>
-        <version>2.15.2</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <includes>
+            <include>**/*Spec.class</include>
+            <include>**/*Test.class</include>
+          </includes>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.1.6</version>
         <executions>
           <execution>
             <goals>
@@ -139,6 +161,8 @@
         </executions>
         <configuration>
           <scalaVersion>${scala.version}</scalaVersion>
+          <recompileMode>incremental</recompileMode>
+          <displayCmd>true</displayCmd>
           <args>
             <arg>-deprecation</arg>
             <arg>-unchecked</arg>
@@ -181,21 +205,47 @@
         <groupId>org.scalariform</groupId>
         <artifactId>scalariform-maven-plugin</artifactId>
         <version>0.1.4</version>
-        <executions>
-          <execution>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>format</goal>
-            </goals>
-            <configuration>
-              <rewriteArrowSymbols>false</rewriteArrowSymbols>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
 
     </plugins>
   </build>
 
+  <reporting>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <locales>zh_CN</locales>
+          <outputEncoding>UTF-8</outputEncoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.7</version>
+      </plugin>
+
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.1.6</version>
+        <configuration>
+          <jvmArgs>
+            <jvmArg>-Xms64m</jvmArg>
+            <jvmArg>-Xmx1024m</jvmArg>
+          </jvmArgs>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>2.16</version>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
 

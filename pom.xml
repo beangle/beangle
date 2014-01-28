@@ -7,7 +7,7 @@
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
-    The Beangle Software Group provides agile development scaffold and toolkits.
+    The Beangle Software provides agile development scaffold and toolkits.
   </description>
 
   <modules>
@@ -24,7 +24,7 @@
   </licenses>
 
   <organization>
-    <name>The Beangle Software Group</name>
+    <name>The Beangle Software</name>
     <url>https://github.com/beangle/beangle</url>
   </organization>
 
