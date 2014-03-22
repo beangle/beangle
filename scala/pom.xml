@@ -168,6 +168,8 @@
             <arg>-unchecked</arg>
             <arg>-feature</arg>
             <arg>-target:jvm-1.6</arg>
+            <arg>-optimise</arg>
+            <arg>-Yinline-warnings</arg>
           </args>
           <jvmArgs>
             <jvmArg>-Xms200m</jvmArg>
@@ -182,7 +184,7 @@
         <version>2.9</version>
         <configuration>
           <downloadSources>true</downloadSources>
-          <useProjectReferences>true</useProjectReferences>
+          <useProjectReferences>false</useProjectReferences>
           <projectNameTemplate>[artifactId]</projectNameTemplate>
           <sourceIncludes>
             <sourceInclude>**/*.scala</sourceInclude>
