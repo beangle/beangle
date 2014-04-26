@@ -162,7 +162,7 @@
         </executions>
         <configuration>
           <scalaVersion>${scala.version}</scalaVersion>
-          <recompileMode>incremental</recompileMode>
+          <!--<recompileMode>incremental</recompileMode>-->
           <args>
             <arg>-deprecation</arg>
             <arg>-unchecked</arg>
