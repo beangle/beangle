@@ -193,7 +193,7 @@
         <version>2.9</version>
         <configuration>
           <downloadSources>true</downloadSources>
-          <useProjectReferences>false</useProjectReferences>
+          <useProjectReferences>true</useProjectReferences>
           <projectNameTemplate>[artifactId]</projectNameTemplate>
           <sourceIncludes>
             <sourceInclude>**/*.scala</sourceInclude>
