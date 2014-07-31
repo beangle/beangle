@@ -19,6 +19,8 @@
     <mockito.version>1.9.5</mockito.version>
     <h2.version>1.4.178</h2.version>
     <junit.version>4.11</junit.version>
+
+    <mvn.scala.compiler.version>3.2.0</mvn.scala.compiler.version>
   </properties>
 
   <dependencyManagement>
@@ -160,7 +162,7 @@
       <plugin>
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
-        <version>3.1.6</version>
+        <version>${mvn.scala.compiler.version}</version>
         <executions>
           <execution>
             <goals>
@@ -184,13 +186,15 @@
             <jvmArg>-Xms200m</jvmArg>
             <jvmArg>-Xmx1024m</jvmArg>
           </jvmArgs>
+          <recompileMode>incremental</recompileMode>
+          <useZincServer>true</useZincServer>
         </configuration>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.9</version>
+        <version>${mvn.eclipse.version}</version>
         <configuration>
           <downloadSources>true</downloadSources>
           <useProjectReferences>true</useProjectReferences>
@@ -227,7 +231,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.3</version>
+        <version>${mvn.site.version}</version>
         <configuration>
           <locales>zh_CN</locales>
           <outputEncoding>UTF-8</outputEncoding>
@@ -236,13 +240,13 @@
 
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.7</version>
+        <version>${mvn.project.info.version}</version>
       </plugin>
 
       <plugin>
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
-        <version>3.1.6</version>
+        <version>${mvn.scala.compiler.version}</version>
         <configuration>
           <jvmArgs>
             <jvmArg>-Xms64m</jvmArg>
@@ -254,7 +258,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>2.16</version>
+        <version>${mvn.surefire.report.version}</version>
       </plugin>
     </plugins>
   </reporting>
