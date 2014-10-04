@@ -11,13 +11,14 @@
   <name>Beangle Scala Parent</name>
   
   <properties>
-    <scala.version>2.11.1</scala.version>
-    <scalatest.version>2.2.0</scalatest.version>
+    <scala.version>2.11.2</scala.version>
+    <scalatest.version>2.2.2</scalatest.version>
+    <scalaxml.version>1.0.2</scalaxml.version>
     <slf4j.version>1.7.7</slf4j.version>
     <logback.version>1.1.2</logback.version>
     <servletapi.version>3.1.0</servletapi.version>
     <mockito.version>1.9.5</mockito.version>
-    <h2.version>1.4.178</h2.version>
+    <h2.version>1.4.181</h2.version>
     <junit.version>4.11</junit.version>
 
     <mvn.scala.compiler.version>3.2.0</mvn.scala.compiler.version>
@@ -34,7 +35,7 @@
       <dependency>
         <groupId>org.scala-lang.modules</groupId>
         <artifactId>scala-xml_2.11</artifactId>
-        <version>1.0.2</version>
+        <version>${scalaxml.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
