@@ -19,6 +19,7 @@
     <servletapi.version>3.1.0</servletapi.version>
     <mockito.version>1.9.5</mockito.version>
     <h2.version>1.4.181</h2.version>
+    <pgsql.version>9.3-1102-jdbc4</pgsql.version>
     <junit.version>4.11</junit.version>
 
     <mvn.scala.compiler.version>3.2.0</mvn.scala.compiler.version>
@@ -79,6 +80,11 @@
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>${h2.version}</version>
+      </dependency>
+      <dependency>
+       <groupId>org.postgresql</groupId>
+       <artifactId>postgresql</artifactId>
+       <version>${pgsql.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -169,7 +175,6 @@
             <goals>
               <goal>compile</goal>
               <goal>testCompile</goal>
-              <goal>doc-jar</goal>
             </goals>
           </execution>
         </executions>
@@ -226,9 +231,39 @@
     </plugins>
   </build>
 
+  <profiles>
+    <profile>
+      <id>beangle-scala-release</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.alchim31.maven</groupId>
+            <artifactId>scala-maven-plugin</artifactId>
+            <version>${mvn.scala.compiler.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>doc-jar</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <scalaVersion>${scala.version}</scalaVersion>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
   <reporting>
     <plugins>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
