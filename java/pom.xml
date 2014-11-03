@@ -16,9 +16,9 @@
     <servletapi.version>3.1.0</servletapi.version>
     <testng.version>6.8.7</testng.version>
     <junit.version>4.11</junit.version>
-    <mockito.version>1.9.5</mockito.version>
-    <h2.version>1.4.178</h2.version>
-    <osgi.version>5.0.0</osgi.version>
+    <mockito.version>1.10.8</mockito.version>
+    <h2.version>1.4.182</h2.version>
+    <osgi.version>6.0.0</osgi.version>
 
     <mvn.javadoc.version>2.9.1</mvn.javadoc.version>
     <mvn.jxr.version>2.4</mvn.jxr.version>
