@@ -178,6 +178,7 @@
           </jvmArgs>
           <recompileMode>incremental</recompileMode>
           <useZincServer>true</useZincServer>
+          <sendJavaToScalac>false</sendJavaToScalac>
         </configuration>
       </plugin>
 
