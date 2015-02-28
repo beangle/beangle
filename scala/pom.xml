@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>20</version>
+    <version>21</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
@@ -11,16 +11,17 @@
   <name>Beangle Scala Parent</name>
   
   <properties>
-    <scala.version>2.11.2</scala.version>
-    <scalatest.version>2.2.2</scalatest.version>
-    <scalaxml.version>1.0.2</scalaxml.version>
+    <scala.version>2.11.5</scala.version>
+    <scala.binary.version>2.11</scala.binary.version>
+    <scalatest.version>2.2.4</scalatest.version>
+    <scalaxml.version>1.0.3</scalaxml.version>
     <slf4j.version>1.7.7</slf4j.version>
     <logback.version>1.1.2</logback.version>
     <servletapi.version>3.1.0</servletapi.version>
     <mockito.version>1.10.8</mockito.version>
     <h2.version>1.4.182</h2.version>
     <pgsql.version>9.3-1102-jdbc4</pgsql.version>
-    <junit.version>4.11</junit.version>
+    <junit.version>4.12</junit.version>
 
     <mvn.scala.compiler.version>3.2.0</mvn.scala.compiler.version>
   </properties>
@@ -164,6 +165,7 @@
         </executions>
         <configuration>
           <scalaVersion>${scala.version}</scalaVersion>
+          <scalaCompatVersion>${scala.binary.version}</scalaCompatVersion>
           <source>${java.version}</source>
           <target>${java.version}</target>
           <encoding>${project.build.sourceEncoding}</encoding>
