@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>22</version>
+    <version>22.1</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
@@ -24,6 +24,7 @@
     <junit.version>4.12</junit.version>
 
     <mvn.scala.compiler.version>3.2.0</mvn.scala.compiler.version>
+    <mvn.scalariform.version>0.1.4</mvn.scalariform.version>
   </properties>
 
   <dependencyManagement>
@@ -214,7 +215,7 @@
       <plugin>
         <groupId>org.scalariform</groupId>
         <artifactId>scalariform-maven-plugin</artifactId>
-        <version>0.1.4</version>
+        <version>${mvn.scalariform.version}</version>
       </plugin>
 
     </plugins>
