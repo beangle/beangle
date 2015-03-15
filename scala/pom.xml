@@ -109,6 +109,70 @@
   <build>
     <sourceDirectory>src/main/scala</sourceDirectory>
     <testSourceDirectory>src/test/scala</testSourceDirectory>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>scala-maven-plugin</artifactId>
+          <version>${mvn.scala.compiler.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>compile</goal>
+                <goal>testCompile</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <scalaVersion>${scala.version}</scalaVersion>
+            <scalaCompatVersion>${scala.binary.version}</scalaCompatVersion>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <args>
+              <arg>-deprecation</arg>
+              <arg>-unchecked</arg>
+              <arg>-feature</arg>
+              <arg>-target:jvm-1.6</arg>
+              <arg>-optimise</arg>
+              <arg>-Yinline-warnings</arg>
+            </args>
+            <jvmArgs>
+              <jvmArg>-Xms200m</jvmArg>
+              <jvmArg>-Xmx1024m</jvmArg>
+            </jvmArgs>
+            <recompileMode>incremental</recompileMode>
+            <useZincServer>true</useZincServer>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-eclipse-plugin</artifactId>
+          <version>${mvn.eclipse.version}</version>
+          <configuration>
+            <downloadSources>true</downloadSources>
+            <useProjectReferences>true</useProjectReferences>
+            <projectNameTemplate>[artifactId]</projectNameTemplate>
+            <sourceIncludes>
+              <sourceInclude>**/*.scala</sourceInclude>
+            </sourceIncludes>
+            <buildcommands>
+              <buildcommand>org.scala-ide.sdt.core.scalabuilder</buildcommand>
+            </buildcommands>
+            <projectnatures>
+              <projectnature>org.eclipse.jdt.core.javanature</projectnature>
+              <projectnature>org.scala-ide.sdt.core.scalanature</projectnature>
+            </projectnatures>
+            <classpathContainers>
+              <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+              <classpathContainer>org.scala-ide.sdt.launching.SCALA_CONTAINER</classpathContainer>
+            </classpathContainers>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
     <plugins>
 
       <plugin>
@@ -155,61 +219,11 @@
       <plugin>
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
-        <version>${mvn.scala.compiler.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <scalaVersion>${scala.version}</scalaVersion>
-          <scalaCompatVersion>${scala.binary.version}</scalaCompatVersion>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
-          <args>
-            <arg>-deprecation</arg>
-            <arg>-unchecked</arg>
-            <arg>-feature</arg>
-            <arg>-target:jvm-1.6</arg>
-            <arg>-optimise</arg>
-            <arg>-Yinline-warnings</arg>
-          </args>
-          <jvmArgs>
-            <jvmArg>-Xms200m</jvmArg>
-            <jvmArg>-Xmx1024m</jvmArg>
-          </jvmArgs>
-          <recompileMode>incremental</recompileMode>
-          <useZincServer>true</useZincServer>
-        </configuration>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
-        <version>${mvn.eclipse.version}</version>
-        <configuration>
-          <downloadSources>true</downloadSources>
-          <useProjectReferences>true</useProjectReferences>
-          <projectNameTemplate>[artifactId]</projectNameTemplate>
-          <sourceIncludes>
-            <sourceInclude>**/*.scala</sourceInclude>
-          </sourceIncludes>
-          <buildcommands>
-            <buildcommand>org.scala-ide.sdt.core.scalabuilder</buildcommand>
-          </buildcommands>
-          <projectnatures>
-            <projectnature>org.eclipse.jdt.core.javanature</projectnature>
-            <projectnature>org.scala-ide.sdt.core.scalanature</projectnature>
-          </projectnatures>
-          <classpathContainers>
-            <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
-            <classpathContainer>org.scala-ide.sdt.launching.SCALA_CONTAINER</classpathContainer>
-          </classpathContainers>
-        </configuration>
       </plugin>
 
       <plugin>
