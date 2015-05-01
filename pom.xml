@@ -28,7 +28,7 @@
     <url>https://github.com/beangle/beangle</url>
   </organization>
 
-  <url>https://github.com/beangle/beangle</url>
+  <url>http://beangle.github.io</url>
 
   <scm>
     <connection>scm:git:git://github.com/beangle/beangle.git</connection>
@@ -47,18 +47,18 @@
     <mvn.install.version>2.5.2</mvn.install.version>
     <mvn.source.version>2.4</mvn.source.version>
     <mvn.jar.version>2.6</mvn.jar.version>
-    <mvn.license.version>1.10.b1</mvn.license.version>
+    <mvn.license.version>2.10</mvn.license.version>
     <mvn.release.version>2.5.1</mvn.release.version>
     <mvn.surefire.version>2.18.1</mvn.surefire.version>
     <mvn.surefire.report.version>2.18.1</mvn.surefire.report.version>
     <mvn.checkstyle.version>2.14</mvn.checkstyle.version>
-    <mvn.bundle.version>2.5.3</mvn.bundle.version>
+    <mvn.bundle.version>2.5.4</mvn.bundle.version>
     <mvn.gpg.version>1.6</mvn.gpg.version>
     <mvn.scm.gitprovider.version>1.9.2</mvn.scm.gitprovider.version>
     <mvn.eclipse.version>2.9</mvn.eclipse.version>
     <mvn.site.version>3.4</mvn.site.version>
     <mvn.project.info.version>2.8</mvn.project.info.version>
-    <mvn.animal.sniffer.version>1.13</mvn.animal.sniffer.version>
+    <mvn.animal.sniffer.version>1.14</mvn.animal.sniffer.version>
   </properties>
   
   <developers>
@@ -137,17 +137,13 @@
           <artifactId>maven-jar-plugin</artifactId>
           <version>${mvn.jar.version}</version>
           <configuration>
-            <archive>
-              <manifestEntries>
-                <Built-By>Beangle</Built-By>
-              </manifestEntries>
-            </archive>
+            <useDefaultManifestFile>true</useDefaultManifestFile>
           </configuration>
         </plugin>
 
         <plugin>
-          <groupId>com.mycila.maven-license-plugin</groupId>
-          <artifactId>maven-license-plugin</artifactId>
+          <groupId>com.mycila</groupId>
+          <artifactId>license-maven-plugin</artifactId>
           <version>${mvn.license.version}</version>
           <configuration>
             <strictCheck>true</strictCheck>
@@ -163,6 +159,13 @@
               <scala>SLASHSTAR_STYLE</scala>
             </mapping>
           </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
 
         <plugin>
