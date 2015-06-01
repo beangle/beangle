@@ -9,7 +9,7 @@
   <artifactId>beangle-scala</artifactId>
   <packaging>pom</packaging>
   <name>Beangle Scala Parent</name>
-  
+
   <properties>
     <scala.version>2.11.6</scala.version>
     <scala.binary.version>2.11</scala.binary.version>
@@ -151,6 +151,7 @@
           <artifactId>maven-eclipse-plugin</artifactId>
           <version>${mvn.eclipse.version}</version>
           <configuration>
+            <downloadJavadocs>false</downloadJavadocs>
             <downloadSources>true</downloadSources>
             <useProjectReferences>true</useProjectReferences>
             <projectNameTemplate>[artifactId]</projectNameTemplate>
@@ -308,4 +309,3 @@
     </plugins>
   </reporting>
 </project>
-
