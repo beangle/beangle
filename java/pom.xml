@@ -20,7 +20,6 @@
     <h2.version>1.4.182</h2.version>
     <osgi.version>6.0.0</osgi.version>
 
-    <mvn.javadoc.version>2.10.1</mvn.javadoc.version>
     <mvn.jxr.version>2.5</mvn.jxr.version>
     <mvn.pmd.version>3.4</mvn.pmd.version>
     <mvn.cobertura.version>2.7</mvn.cobertura.version>
