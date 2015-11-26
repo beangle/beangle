@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>22.4</version>
+    <version>22.5-SNAPSHOT</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
