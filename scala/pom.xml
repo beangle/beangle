@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>22.5-SNAPSHOT</version>
+    <version>23.1-SNAPSHOT</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
@@ -11,15 +11,16 @@
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.11.6</scala.version>
-    <scala.binary.version>2.11</scala.binary.version>
-    <scalatest.version>2.2.4</scalatest.version>
-    <scalaxml.version>1.0.4</scalaxml.version>
+    <scala.version>2.12.0-M3</scala.version>
+    <scala.binary.version>2.12.0-M3</scala.binary.version>
+    <scalatest.version>3.0.0-M12</scalatest.version>
+    <scalaxml.version>1.0.5</scalaxml.version>
     <slf4j.version>1.7.7</slf4j.version>
     <logback.version>1.1.2</logback.version>
     <servletapi.version>3.1.0</servletapi.version>
     <mockito.version>1.10.8</mockito.version>
     <h2.version>1.4.182</h2.version>
+    <hsql.version>2.3.2</hsql.version>
     <pgsql.version>9.3-1102-jdbc4</pgsql.version>
     <junit.version>4.12</junit.version>
 
@@ -31,13 +32,13 @@
     <dependencies>
       <dependency>
         <groupId>org.scalatest</groupId>
-        <artifactId>scalatest_2.11</artifactId>
+        <artifactId>scalatest_2.12.0-M3</artifactId>
         <version>${scalatest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.scala-lang.modules</groupId>
-        <artifactId>scala-xml_2.11</artifactId>
+        <artifactId>scala-xml_2.12.0-M3</artifactId>
         <version>${scalaxml.version}</version>
         <scope>provided</scope>
       </dependency>
@@ -84,6 +85,11 @@
         <version>${h2.version}</version>
       </dependency>
       <dependency>
+        <groupId>org.hsqldb</groupId>
+        <artifactId>hsqldb</artifactId>
+        <version>${hsql.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
         <version>${pgsql.version}</version>
@@ -106,7 +112,7 @@
     </dependency>
     <dependency>
       <groupId>org.scalatest</groupId>
-      <artifactId>scalatest_2.11</artifactId>
+      <artifactId>scalatest_2.12.0-M3</artifactId>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -145,8 +151,7 @@
               <arg>-deprecation</arg>
               <arg>-unchecked</arg>
               <arg>-feature</arg>
-              <arg>-target:jvm-1.6</arg>
-              <arg>-optimise</arg>
+              <arg>-target:jvm-1.8</arg>
               <arg>-Yinline-warnings</arg>
             </args>
             <jvmArgs>
@@ -179,7 +184,6 @@
             </projectnatures>
             <classpathContainers>
               <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
-              <!--<classpathContainer>org.scala-ide.sdt.launching.SCALA_CONTAINER</classpathContainer>-->
             </classpathContainers>
           </configuration>
         </plugin>
