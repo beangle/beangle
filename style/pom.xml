@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>22.4</version>
+    <version>23.1</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-codestyle</artifactId>
