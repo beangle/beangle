@@ -29,7 +29,6 @@
   </organization>
 
   <url>http://beangle.github.io</url>
-  <inceptionYear>2005</inceptionYear>
 
   <scm>
     <connection>scm:git:git://github.com/beangle/beangle.git</connection>

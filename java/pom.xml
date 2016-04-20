@@ -25,40 +25,6 @@
     <mvn.cobertura.version>2.7</mvn.cobertura.version>
   </properties>
 
-  <developers>
-    <developer>
-      <name>Tihua Duan</name>
-      <id>chaostone</id>
-      <email>duantihua@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Jia Qian</name>
-      <id>chanjarster</id>
-      <email>chanjarster@gmail.com</email>
-      <roles>
-        <role>Contributor</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Zhao Ding</name>
-      <id>zhaoding</id>
-      <email>496517339@qq.com</email>
-      <roles>
-        <role>Contributor</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Qian Jun</name>
-      <id>qianjun</id>
-      <email>156257964@qq.com</email>
-      <roles>
-        <role>Contributor</role>
-      </roles>
-    </developer>
-  </developers>
 
   <dependencyManagement>
     <dependencies>
