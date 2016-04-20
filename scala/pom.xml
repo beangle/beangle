@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>23.1</version>
+    <version>23.2</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
@@ -11,18 +11,19 @@
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.12.0-M3</scala.version>
-    <scala.binary.version>2.12.0-M3</scala.binary.version>
-    <scalatest.version>3.0.0-M12</scalatest.version>
+    <scala.version>2.12.0-M4</scala.version>
+    <scala.binary.version>2.12.0-M4</scala.binary.version>
+    <scalatest.version>3.0.0-M16-SNAP3</scalatest.version>
     <scalaxml.version>1.0.5</scalaxml.version>
-    <slf4j.version>1.7.7</slf4j.version>
-    <logback.version>1.1.2</logback.version>
+    <slf4j.version>1.7.18</slf4j.version>
+    <logback.version>1.1.6</logback.version>
     <servletapi.version>3.1.0</servletapi.version>
-    <mockito.version>1.10.8</mockito.version>
-    <h2.version>1.4.182</h2.version>
-    <hsql.version>2.3.2</hsql.version>
-    <pgsql.version>9.3-1102-jdbc4</pgsql.version>
+    <mockito.version>1.10.19</mockito.version>
+    <h2.version>1.4.191</h2.version>
+    <hsql.version>2.3.3</hsql.version>
+    <pgsql.version>9.4.1208</pgsql.version>
     <junit.version>4.12</junit.version>
+    <fst.version>2.45</fst.version>
 
     <mvn.scala.compiler.version>3.2.2</mvn.scala.compiler.version>
     <mvn.scalariform.version>0.1.4</mvn.scalariform.version>
@@ -32,13 +33,13 @@
     <dependencies>
       <dependency>
         <groupId>org.scalatest</groupId>
-        <artifactId>scalatest_2.12.0-M3</artifactId>
+        <artifactId>scalatest_2.12.0-M4</artifactId>
         <version>${scalatest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.scala-lang.modules</groupId>
-        <artifactId>scala-xml_2.12.0-M3</artifactId>
+        <artifactId>scala-xml_2.12.0-M4</artifactId>
         <version>${scalaxml.version}</version>
         <scope>provided</scope>
       </dependency>
@@ -94,6 +95,11 @@
         <artifactId>postgresql</artifactId>
         <version>${pgsql.version}</version>
       </dependency>
+      <dependency>
+        <groupId>de.ruedigermoeller</groupId>
+        <artifactId>fst</artifactId>
+        <version>${fst.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -112,7 +118,7 @@
     </dependency>
     <dependency>
       <groupId>org.scalatest</groupId>
-      <artifactId>scalatest_2.12.0-M3</artifactId>
+      <artifactId>scalatest_2.12.0-M4</artifactId>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

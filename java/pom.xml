@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>23.1</version>
+    <version>23.2</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-java</artifactId>
@@ -11,13 +11,13 @@
   <name>Beangle Java Parent</name>
 
   <properties>
-    <slf4j.version>1.7.7</slf4j.version>
-    <logback.version>1.1.2</logback.version>
+    <slf4j.version>1.7.18</slf4j.version>
+    <logback.version>1.1.6</logback.version>
     <servletapi.version>3.1.0</servletapi.version>
     <testng.version>6.8.7</testng.version>
     <junit.version>4.12</junit.version>
-    <mockito.version>1.10.8</mockito.version>
-    <h2.version>1.4.182</h2.version>
+    <mockito.version>1.10.19</mockito.version>
+    <h2.version>1.4.191</h2.version>
     <osgi.version>6.0.0</osgi.version>
 
     <mvn.jxr.version>2.5</mvn.jxr.version>
@@ -25,40 +25,6 @@
     <mvn.cobertura.version>2.7</mvn.cobertura.version>
   </properties>
 
-  <developers>
-    <developer>
-      <name>Tihua Duan</name>
-      <id>chaostone</id>
-      <email>duantihua@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Jia Qian</name>
-      <id>chanjarster</id>
-      <email>chanjarster@gmail.com</email>
-      <roles>
-        <role>Contributor</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Zhao Ding</name>
-      <id>zhaoding</id>
-      <email>496517339@qq.com</email>
-      <roles>
-        <role>Contributor</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Qian Jun</name>
-      <id>qianjun</id>
-      <email>156257964@qq.com</email>
-      <roles>
-        <role>Contributor</role>
-      </roles>
-    </developer>
-  </developers>
 
   <dependencyManagement>
     <dependencies>
