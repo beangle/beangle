@@ -3,7 +3,7 @@
   <groupId>org.beangle</groupId>
   <artifactId>beangle</artifactId>
   <packaging>pom</packaging>
-  <version>23.3-SNAPSHOT</version>
+  <version>23.3</version>
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
@@ -146,9 +146,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>${mvn.jar.version}</version>
-          <configuration>
-            <useDefaultManifestFile>true</useDefaultManifestFile>
-          </configuration>
         </plugin>
 
         <plugin>
