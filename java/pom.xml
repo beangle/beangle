@@ -11,20 +11,10 @@
   <name>Beangle Java Parent</name>
 
   <properties>
-    <slf4j.version>1.7.18</slf4j.version>
-    <logback.version>1.1.6</logback.version>
-    <servletapi.version>3.1.0</servletapi.version>
-    <testng.version>6.8.7</testng.version>
-    <junit.version>4.12</junit.version>
-    <mockito.version>1.10.19</mockito.version>
-    <h2.version>1.4.191</h2.version>
-    <osgi.version>6.0.0</osgi.version>
-
     <mvn.jxr.version>2.5</mvn.jxr.version>
     <mvn.pmd.version>3.4</mvn.pmd.version>
     <mvn.cobertura.version>2.7</mvn.cobertura.version>
   </properties>
-
 
   <dependencyManagement>
     <dependencies>
@@ -76,21 +66,6 @@
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>${h2.version}</version>
-      </dependency>
-      <!--osgi-->
-      <dependency>
-        <groupId>org.osgi</groupId>
-        <artifactId>org.osgi.core</artifactId>
-        <version>${osgi.version}</version>
-        <scope>provided</scope>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>org.osgi</groupId>
-        <artifactId>org.osgi.compendium</artifactId>
-        <version>${osgi.version}</version>
-        <scope>provided</scope>
-        <optional>true</optional>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -163,13 +138,6 @@
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
       </plugin>
-
-      <!--
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>animal-sniffer-maven-plugin</artifactId>
-      </plugin>
-      -->
     </plugins>
   </build>
 
