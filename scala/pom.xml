@@ -11,11 +11,12 @@
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.12.0-M4</scala.version>
-    <scala.binary.version>2.12.0-M4</scala.binary.version>
-    <scalatest.version>3.0.0-M16-SNAP3</scalatest.version>
+    <scala.version>2.12.0-M5</scala.version>
+    <scala.binary.version>2.12.0-M5</scala.binary.version>
+    <scalatest.version>3.0.0-RC4</scalatest.version>
     <scalaxml.version>1.0.5</scalaxml.version>
     <fst.version>2.45</fst.version>
+    <msgpack.version>0.6.11</msgpack.version>
     <mvn.scala.compiler.version>3.2.2</mvn.scala.compiler.version>
     <mvn.scalariform.version>0.1.4</mvn.scalariform.version>
   </properties>
@@ -24,13 +25,13 @@
     <dependencies>
       <dependency>
         <groupId>org.scalatest</groupId>
-        <artifactId>scalatest_2.12.0-M4</artifactId>
+        <artifactId>scalatest_2.12.0-M5</artifactId>
         <version>${scalatest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.scala-lang.modules</groupId>
-        <artifactId>scala-xml_2.12.0-M4</artifactId>
+        <artifactId>scala-xml_2.12.0-M5</artifactId>
         <version>${scalaxml.version}</version>
         <scope>provided</scope>
       </dependency>
@@ -109,7 +110,7 @@
     </dependency>
     <dependency>
       <groupId>org.scalatest</groupId>
-      <artifactId>scalatest_2.12.0-M4</artifactId>
+      <artifactId>scalatest_2.12.0-M5</artifactId>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
