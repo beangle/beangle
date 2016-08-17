@@ -3,7 +3,7 @@
   <groupId>org.beangle</groupId>
   <artifactId>beangle</artifactId>
   <packaging>pom</packaging>
-  <version>23.3</version>
+  <version>23.4</version>
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
@@ -58,6 +58,7 @@
     <mvn.scm.gitprovider.version>1.9.4</mvn.scm.gitprovider.version>
     <mvn.eclipse.version>2.10</mvn.eclipse.version>
     <mvn.site.version>3.5.1</mvn.site.version>
+    <mvn.war.version>2.6</mvn.war.version>
     <mvn.project.info.version>2.9</mvn.project.info.version>
 
     <slf4j.version>1.7.21</slf4j.version>
@@ -65,10 +66,10 @@
     <servletapi.version>3.1.0</servletapi.version>
     <testng.version>6.9.10</testng.version>
     <junit.version>4.12</junit.version>
-    <mockito.version>2.0.54-beta</mockito.version>
+    <mockito.version>2.0.86-beta</mockito.version>
     <h2.version>1.4.192</h2.version>
     <hsql.version>2.3.3</hsql.version>
-    <pgsql.version>9.4.1208</pgsql.version>
+    <pgsql.version>9.4.1209.jre7</pgsql.version>
   </properties>
 
   <developers>
