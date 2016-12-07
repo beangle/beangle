@@ -3,7 +3,7 @@
   <groupId>org.beangle</groupId>
   <artifactId>beangle</artifactId>
   <packaging>pom</packaging>
-  <version>23.4</version>
+  <version>24.0</version>
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
@@ -41,14 +41,14 @@
     <downloadJavadocs>false</downloadJavadocs>
     <java.version>1.8</java.version>
 
-    <mvn.compiler.version>3.5.1</mvn.compiler.version>
+    <mvn.compiler.version>3.6.0</mvn.compiler.version>
     <mvn.deploy.version>2.8.2</mvn.deploy.version>
     <mvn.clean.version>3.0.0</mvn.clean.version>
     <mvn.install.version>2.5.2</mvn.install.version>
-    <mvn.javadoc.version>2.10.3</mvn.javadoc.version>
-    <mvn.source.version>3.0.0</mvn.source.version>
-    <mvn.jar.version>3.0.0</mvn.jar.version>
-    <mvn.license.version>3.0.rc1</mvn.license.version>
+    <mvn.javadoc.version>2.10.4</mvn.javadoc.version>
+    <mvn.source.version>3.0.1</mvn.source.version>
+    <mvn.jar.version>3.0.2</mvn.jar.version>
+    <mvn.license.version>3.0</mvn.license.version>
     <mvn.release.version>2.5.3</mvn.release.version>
     <mvn.surefire.version>2.19.1</mvn.surefire.version>
     <mvn.surefire.report.version>2.19.1</mvn.surefire.report.version>
@@ -58,18 +58,18 @@
     <mvn.scm.gitprovider.version>1.9.4</mvn.scm.gitprovider.version>
     <mvn.eclipse.version>2.10</mvn.eclipse.version>
     <mvn.site.version>3.5.1</mvn.site.version>
-    <mvn.war.version>2.6</mvn.war.version>
+    <mvn.war.version>3.0.0</mvn.war.version>
     <mvn.project.info.version>2.9</mvn.project.info.version>
 
     <slf4j.version>1.7.21</slf4j.version>
     <logback.version>1.1.7</logback.version>
     <servletapi.version>3.1.0</servletapi.version>
-    <testng.version>6.9.10</testng.version>
+    <testng.version>6.9.13.6</testng.version>
     <junit.version>4.12</junit.version>
-    <mockito.version>2.0.86-beta</mockito.version>
-    <h2.version>1.4.192</h2.version>
-    <hsql.version>2.3.3</hsql.version>
-    <pgsql.version>9.4.1209.jre7</pgsql.version>
+    <mockito.version>2.2.12</mockito.version>
+    <h2.version>1.4.193</h2.version>
+    <hsql.version>2.3.4</hsql.version>
+    <pgsql.version>9.4.1212</pgsql.version>
   </properties>
 
   <developers>

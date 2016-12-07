@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>23.4</version>
+    <version>24.0</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-java</artifactId>
@@ -12,7 +12,7 @@
 
   <properties>
     <mvn.jxr.version>2.5</mvn.jxr.version>
-    <mvn.pmd.version>3.4</mvn.pmd.version>
+    <mvn.pmd.version>3.7</mvn.pmd.version>
     <mvn.cobertura.version>2.7</mvn.cobertura.version>
   </properties>
 
@@ -218,7 +218,7 @@
           </reportSet>
           <linkXref>true</linkXref>
           <minimumTokens>100</minimumTokens>
-          <targetJdk>1.6</targetJdk>
+          <targetJdk>1.8</targetJdk>
         </configuration>
       </plugin>
     </plugins>
