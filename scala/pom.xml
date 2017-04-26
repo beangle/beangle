@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>24.0</version>
+    <version>24.1</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
@@ -11,9 +11,9 @@
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.12.1</scala.version>
+    <scala.version>2.12.2</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
-    <scalatest.version>3.0.1</scalatest.version>
+    <scalatest.version>3.0.3</scalatest.version>
     <scalaxml.version>1.0.6</scalaxml.version>
     <msgpack.version>0.6.12</msgpack.version>
     <mvn.scala.compiler.version>3.2.2</mvn.scala.compiler.version>
