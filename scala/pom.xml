@@ -11,7 +11,7 @@
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.12.2</scala.version>
+    <scala.version>2.12.3</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
     <scalatest.version>3.0.3</scalatest.version>
     <scalaxml.version>1.0.6</scalaxml.version>
