@@ -3,7 +3,7 @@
   <groupId>org.beangle</groupId>
   <artifactId>beangle</artifactId>
   <packaging>pom</packaging>
-  <version>24.4</version>
+  <version>24.5</version>
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
@@ -127,6 +127,9 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
           <version>${mvn.install.version}</version>
+          <configuration>
+            <createChecksum>true</createChecksum>
+          </configuration>
         </plugin>
 
         <plugin>
