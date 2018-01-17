@@ -9,6 +9,7 @@ target
 .project
 .settings
 .metadata
+.DS_Store
 
 RemoteSystemsTempFiles
 Servers

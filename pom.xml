@@ -210,6 +210,34 @@
         </plugin>
 
         <plugin>
+          <groupId>org.beangle.maven</groupId>
+          <artifactId>beangle-maven-plugin</artifactId>
+          <version>0.3.9</version>
+          <configuration>
+            <dependencyIncludes>*:*</dependencyIncludes>
+          </configuration>
+          <executions>
+            <execution>
+              <id>generate</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>sas</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${mvn.war.version}</version>
+          <configuration>
+            <packagingExcludes>
+              %regex[WEB-INF/lib/.*[^T].jar]
+            </packagingExcludes>
+          </configuration>
+        </plugin>
+
+        <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
           <version>${mvn.bundle.version}</version>
