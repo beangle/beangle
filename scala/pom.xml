@@ -184,6 +184,12 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${mvn.javadoc.version}</version>
         </plugin>
+
+        <plugin>
+          <groupId>org.beangle</groupId>
+          <artifactId>style-maven-plugin</artifactId>
+          <version>${beangle.version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
 
