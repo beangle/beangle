@@ -189,6 +189,13 @@
           <groupId>org.beangle</groupId>
           <artifactId>style-maven-plugin</artifactId>
           <version>${beangle.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>ws-check</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>

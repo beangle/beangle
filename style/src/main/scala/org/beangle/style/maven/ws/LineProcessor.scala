@@ -16,11 +16,27 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.beangle.style.maven.util
+package org.beangle.style.maven.ws
 
-import java.nio.charset.Charset
+import org.beangle.style.maven.util.Strings
 
-object Charsets {
-  
-  val UTF_8 = Charset.forName("UTF-8")
+
+trait LineProcessor {
+  def process(line: String): String
 }
+
+class Tab2Space(tablength: Int = 2) extends LineProcessor {
+  private val spaces = " " * tablength
+
+  override def process(line: String): String = {
+    Strings.replace(line, "\t", spaces)
+  }
+}
+
+object TrimTrailingWhiteSpace extends LineProcessor {
+
+  override def process(line: String): String = {
+    Strings.trimEnd(line)
+  }
+}
+

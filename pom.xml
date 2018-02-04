@@ -7,7 +7,7 @@
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
-    The Beangle Software provides agile development scaffold and toolkits.
+    Beangle provides agile development scaffold and toolkits.
   </description>
 
   <modules>
@@ -38,6 +38,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <organization.slogan>Beangle, Agile Development Scaffold and Toolkits.</organization.slogan>
     <downloadJavadocs>false</downloadJavadocs>
     <java.version>1.8</java.version>
     <beangle.version>24.7-SNAPSHOT</beangle.version>
@@ -159,13 +160,34 @@
           <version>${mvn.license.version}</version>
           <configuration>
             <strictCheck>true</strictCheck>
+            <inlineHeader><![CDATA[
+${organization.slogan}
+
+Copyright © ${project.inceptionYear}, ${project.organization.name}.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.]]>
+            </inlineHeader>
             <includes>
-              <include>src/**/java/**</include>
-              <include>src/**/scala/**</include>
+              <include>src/main/java/**</include>
+              <include>src/main/scala/**</include>
             </includes>
             <excludes>
               <exclude>src/**/package-info.java</exclude>
             </excludes>
+            <properties>
+              <email>ibeangle@163.com</email>
+            </properties>
             <mapping>
               <java>SLASHSTAR_STYLE</java>
               <scala>SLASHSTAR_STYLE</scala>
