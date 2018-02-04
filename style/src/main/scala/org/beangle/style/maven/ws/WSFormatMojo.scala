@@ -25,7 +25,7 @@ import org.apache.maven.plugins.annotations.{ Mojo, Parameter, LifecyclePhase, R
 import org.apache.maven.project.MavenProject
 import org.beangle.style.maven.util.Files./
 
-@Mojo(name = "ws-format", defaultPhase = LifecyclePhase.PREPARE_PACKAGE, requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME)
+@Mojo(name = "ws-format")
 class FormatSpaceMojo extends AbstractMojo {
 
   @Parameter(defaultValue = "${project}", readonly = true)

@@ -103,6 +103,19 @@
       </plugin>
 
       <plugin>
+        <groupId>org.beangle</groupId>
+        <artifactId>style-maven-plugin</artifactId>
+        <version>${beangle.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>ws-check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
       </plugin>

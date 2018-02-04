@@ -47,11 +47,10 @@ object Checker {
   def check(file: File): Boolean = {
     val content = Files.readString(new FileInputStream(file))
     if (-1 != content.indexOf("\t") || -1 != content.indexOf(Format.CRLF)) {
-      false;
+      false
     } else {
-      val lines = Strings.split(content, '\n');
+      val lines = Strings.split(content, '\n')
       lines.find(l => l.endsWith(" ")).isEmpty
     }
-    true;
   }
 }

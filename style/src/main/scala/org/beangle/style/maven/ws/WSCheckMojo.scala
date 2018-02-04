@@ -26,6 +26,8 @@ import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.plugins.annotations.{ Mojo, Parameter, LifecyclePhase }
 import org.apache.maven.project.MavenProject
 import org.apache.maven.plugin.MojoExecutionException
+import org.beangle.style.maven.util.Strings
+import org.beangle.style.maven.util.Files
 
 @Mojo(name = "ws-check", defaultPhase = LifecyclePhase.VERIFY, threadSafe = true)
 class WSCheckMojo extends AbstractMojo {
@@ -52,14 +54,15 @@ class WSCheckMojo extends AbstractMojo {
       check(resource.getDirectory, warns)
     }
     if (!warns.isEmpty) {
-      getLog().warn("Whitespace violations:\n" + warns.mkString("\n"));
-      throw new MojoExecutionException("Find violations");
+      val files = warns.map(f => Strings.substringAfter(f, project.getBasedir.getAbsolutePath + Files./))
+      getLog().warn("Whitespace violations:\n" + files.mkString("\n"))
+      throw new MojoExecutionException("Find violations")
     }
   }
 
   private def check(path: String, warns: Buffer[String]): Unit = {
     if (new File(path).exists()) {
-      getLog.info(s"formating ${path} ...")
+      getLog.info(s"checking ${path} ...")
       Checker.check(new File(path), warns)
     }
   }
