@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>24.6</version>
+    <version>24.7</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
@@ -184,6 +184,19 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${mvn.javadoc.version}</version>
         </plugin>
+
+        <plugin>
+          <groupId>org.beangle</groupId>
+          <artifactId>style-maven-plugin</artifactId>
+          <version>${beangle.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>ws-check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -222,6 +235,11 @@
       <plugin>
         <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.beangle</groupId>
+        <artifactId>style-maven-plugin</artifactId>
       </plugin>
 
       <plugin>
