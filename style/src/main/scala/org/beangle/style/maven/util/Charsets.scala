@@ -1,7 +1,7 @@
 /*
- * Beangle,Agile Development Scaffold and Toolkits.
+ * Beangle, Agile Development Scaffold and Toolkits.
  *
- * Copyright (c) 2005, The Beangle Software.
+ * Copyright © 2005, The Beangle Software.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
