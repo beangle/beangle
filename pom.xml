@@ -181,6 +181,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.]]>
             <includes>
               <include>src/main/java/**</include>
               <include>src/main/scala/**</include>
+              <include>src/test/java/**</include>
+              <include>src/test/scala/**</include>
             </includes>
             <excludes>
               <exclude>src/**/package-info.java</exclude>
