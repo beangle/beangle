@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>24.7</version>
+    <version>24.8</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-java</artifactId>
@@ -14,6 +14,7 @@
     <mvn.jxr.version>2.5</mvn.jxr.version>
     <mvn.pmd.version>3.8</mvn.pmd.version>
     <mvn.cobertura.version>2.7</mvn.cobertura.version>
+    <additionalparam>-Xdoclint:none</additionalparam>
   </properties>
 
   <dependencyManagement>
@@ -152,11 +153,11 @@
         <artifactId>maven-bundle-plugin</artifactId>
       </plugin>
 
-	  <plugin>
-          <groupId>org.beangle</groupId>
-          <artifactId>style-maven-plugin</artifactId>
-          <version>${beangle.version}</version>
-        </plugin>
+      <plugin>
+        <groupId>org.beangle</groupId>
+        <artifactId>style-maven-plugin</artifactId>
+        <version>${beangle.version}</version>
+      </plugin>
     </plugins>
   </build>
 
@@ -268,8 +269,9 @@
               </execution>
             </executions>
             <configuration>
+              <doclint>none</doclint>
               <links>
-                <link>http://docs.oracle.com/javase/6/docs/api/</link>
+                <link>http://docs.oracle.com/javase/8/docs/api/</link>
               </links>
               <charset>UTF-8</charset>
               <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
