@@ -152,12 +152,6 @@
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
       </plugin>
-
-      <plugin>
-        <groupId>org.beangle</groupId>
-        <artifactId>style-maven-plugin</artifactId>
-        <version>${beangle.version}</version>
-      </plugin>
     </plugins>
   </build>
 
