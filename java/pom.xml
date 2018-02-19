@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>24.8</version>
+    <version>24.9</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-java</artifactId>
@@ -151,12 +151,6 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
-      </plugin>
-
-      <plugin>
-        <groupId>org.beangle</groupId>
-        <artifactId>style-maven-plugin</artifactId>
-        <version>${beangle.version}</version>
       </plugin>
     </plugins>
   </build>
