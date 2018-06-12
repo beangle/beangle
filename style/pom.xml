@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>24.11-SNAPSHOT</version>
+    <version>24.10</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>style-maven-plugin</artifactId>
@@ -16,7 +16,7 @@
     <maven.version>3.5.3</maven.version>
     <scala.version>2.12.6</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
-    <mvn.scala.compiler.version>3.4.0</mvn.scala.compiler.version>
+    <mvn.scala.compiler.version>3.3.2</mvn.scala.compiler.version>
   </properties>
 
   <prerequisites>
