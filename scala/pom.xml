@@ -16,7 +16,7 @@
     <scalatest.version>3.0.5</scalatest.version>
     <scalaxml.version>1.1.0</scalaxml.version>
     <msgpack.version>0.6.12</msgpack.version>
-    <mvn.scala.compiler.version>3.4.0</mvn.scala.compiler.version>
+    <mvn.scala.compiler.version>3.3.2</mvn.scala.compiler.version>
     <mvn.scalariform.version>0.1.4</mvn.scalariform.version>
   </properties>
 
