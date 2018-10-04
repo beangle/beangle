@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>24.10</version>
+    <version>25.0</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
@@ -11,12 +11,12 @@
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.12.6</scala.version>
+    <scala.version>2.12.7</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
     <scalatest.version>3.0.5</scalatest.version>
-    <scalaxml.version>1.1.0</scalaxml.version>
+    <scalaxml.version>1.1.1</scalaxml.version>
     <msgpack.version>0.6.12</msgpack.version>
-    <mvn.scala.compiler.version>3.3.2</mvn.scala.compiler.version>
+    <mvn.scala.compiler.version>3.4.2</mvn.scala.compiler.version>
     <mvn.scalariform.version>0.1.4</mvn.scalariform.version>
   </properties>
 
@@ -44,13 +44,13 @@
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
         <version>${logback.version}</version>
-        <scope>test</scope>
+        <scope>runtime</scope>
       </dependency>
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
         <version>${logback.version}</version>
-        <scope>test</scope>
+        <scope>runtime</scope>
       </dependency>
       <dependency>
         <groupId>junit</groupId>
