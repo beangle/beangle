@@ -53,8 +53,8 @@
     <mvn.war.version>3.2.2</mvn.war.version>
     <mvn.license.version>3.0</mvn.license.version>
     <mvn.release.version>2.5.3</mvn.release.version>
-    <mvn.surefire.version>2.21.0</mvn.surefire.version>
-    <mvn.surefire.report.version>2.21.0</mvn.surefire.report.version>
+    <mvn.surefire.version>2.22.1</mvn.surefire.version>
+    <mvn.surefire.report.version>2.22.1</mvn.surefire.report.version>
     <mvn.checkstyle.version>3.0.0</mvn.checkstyle.version>
     <mvn.bundle.version>3.5.0</mvn.bundle.version>
     <mvn.gpg.version>1.6</mvn.gpg.version>
