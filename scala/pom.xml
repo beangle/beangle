@@ -149,8 +149,6 @@
               <jvmArg>-Xms200m</jvmArg>
               <jvmArg>-Xmx1024m</jvmArg>
             </jvmArgs>
-            <recompileMode>incremental</recompileMode>
-            <useZincServer>true</useZincServer>
           </configuration>
         </plugin>
 
