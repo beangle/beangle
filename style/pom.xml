@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.beangle</groupId>
@@ -11,8 +13,7 @@
   <name>Beangle Code Style Maven Plugin</name>
 
   <properties>
-    <bundle.symbolicName>org.beangle.style.plugin</bundle.symbolicName>
-    <bundle.namespace>org.beangle.style.plugin</bundle.namespace>
+    <slf4j.version>1.7.25</slf4j.version>
     <maven.version>3.5.4</maven.version>
     <scala.version>2.12.8</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
@@ -24,6 +25,11 @@
   </prerequisites>
 
   <dependencies>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
@@ -56,6 +62,7 @@
       <version>${scala.version}</version>
     </dependency>
   </dependencies>
+
   <build>
     <sourceDirectory>src/main/scala</sourceDirectory>
     <testSourceDirectory>src/test/scala</testSourceDirectory>
@@ -89,8 +96,6 @@
               <jvmArg>-Xms200m</jvmArg>
               <jvmArg>-Xmx1024m</jvmArg>
             </jvmArgs>
-            <recompileMode>incremental</recompileMode>
-            <useZincServer>true</useZincServer>
           </configuration>
         </plugin>
         <plugin>
@@ -98,7 +103,7 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${mvn.javadoc.version}</version>
         </plugin>
-		<plugin>
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-eclipse-plugin</artifactId>
           <version>${mvn.eclipse.version}</version>
@@ -235,4 +240,3 @@
   </profiles>
 
 </project>
-

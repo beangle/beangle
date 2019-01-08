@@ -16,18 +16,17 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.beangle.style.maven.ws
+package org.beangle.style.maven
 
 import java.io.File
-
 import scala.collection.mutable.{ ArrayBuffer, Buffer }
-
 import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.plugins.annotations.{ Mojo, Parameter, LifecyclePhase }
 import org.apache.maven.project.MavenProject
 import org.apache.maven.plugin.MojoExecutionException
-import org.beangle.style.maven.util.{ Strings, Files }
-import org.beangle.style.maven.util.Files./
+import org.beangle.style.util.Strings
+import org.beangle.style.util.Files./
+import org.beangle.style.core.WhiteSpaceFormater
 
 @Mojo(name = "ws-check", defaultPhase = LifecyclePhase.VERIFY, threadSafe = true)
 class WSCheckMojo extends AbstractMojo {
@@ -63,7 +62,7 @@ class WSCheckMojo extends AbstractMojo {
   private def check(path: String, warns: Buffer[String]): Unit = {
     if (new File(path).exists() && !path.startsWith(project.getBasedir.getAbsolutePath + / + "target")) {
       getLog.info(s"checking ${path} ...")
-      Checker.check(new File(path), warns)
+      WhiteSpaceFormater.check(new File(path), warns)
     }
   }
 }

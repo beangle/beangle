@@ -19,12 +19,12 @@
 package org.beangle.style.maven.stat
 
 import java.io.{ BufferedReader, File, Reader, InputStreamReader, FileInputStream }
-
 import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.project.MavenProject
 import org.apache.maven.plugins.annotations.{ Mojo, Parameter, LifecyclePhase, ResolutionScope }
-import org.beangle.style.maven.util.{ Files, MimeTypes, Strings }
-import org.beangle.style.maven.util.Files./
+import org.beangle.style.util.{ Files, Strings }
+import org.beangle.style.util.MimeTypes
+import org.beangle.style.util.Files./
 
 @Mojo(name = "loc", defaultPhase = LifecyclePhase.PREPARE_PACKAGE, requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME)
 class LocMojo extends AbstractMojo {

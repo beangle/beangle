@@ -16,21 +16,22 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.beangle.style.maven.util
+package org.beangle.style.util
 
-import java.net.URL
 import javax.activation.MimeType
+import scala.collection.Seq
 
 object MimeTypes {
 
-  def main(args:Array[String]){
+  def main(args: Array[String]) {
     println(readMimeTypes());
   }
+
   private val types: Map[String, MimeType] = readMimeTypes()
 
   private def readMimeTypes(): Map[String, MimeType] = {
     val me = getClass.getClassLoader
-    val url = me.getResource("org/beangle/style/maven/text.types")
+    val url = me.getResource("org/beangle/style/text.types")
     if (null == url) return Map.empty
     val buf = new collection.mutable.HashMap[String, MimeType]
     Files.readLines(url.openStream(), Charsets.UTF_8) foreach { line =>

@@ -16,9 +16,11 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.beangle.style.maven.ws
+package org.beangle.style.util
 
-object Format {
-  val LF = "\n"
-  val CRLF = "\r\n"
+import java.nio.charset.Charset
+
+object Charsets {
+  
+  val UTF_8 = Charset.forName("UTF-8")
 }

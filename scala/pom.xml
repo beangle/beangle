@@ -149,8 +149,6 @@
               <jvmArg>-Xms200m</jvmArg>
               <jvmArg>-Xmx1024m</jvmArg>
             </jvmArgs>
-            <recompileMode>incremental</recompileMode>
-            <useZincServer>true</useZincServer>
           </configuration>
         </plugin>
 
@@ -230,6 +228,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+          </archive>
+        </configuration>
       </plugin>
 
       <plugin>
