@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>25.1</version>
+    <version>25.2</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
@@ -11,11 +11,11 @@
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.12.7</scala.version>
+    <scala.version>2.12.8</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
     <scalatest.version>3.0.5</scalatest.version>
     <scalaxml.version>1.1.1</scalaxml.version>
-    <msgpack.version>0.6.12</msgpack.version>
+    <msgpack.version>0.8.13</msgpack.version>
     <mvn.scala.compiler.version>3.4.4</mvn.scala.compiler.version>
     <mvn.scalariform.version>0.1.4</mvn.scalariform.version>
   </properties>
@@ -149,8 +149,6 @@
               <jvmArg>-Xms200m</jvmArg>
               <jvmArg>-Xmx1024m</jvmArg>
             </jvmArgs>
-            <recompileMode>incremental</recompileMode>
-            <useZincServer>true</useZincServer>
           </configuration>
         </plugin>
 
@@ -230,6 +228,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+          </archive>
+        </configuration>
       </plugin>
 
       <plugin>

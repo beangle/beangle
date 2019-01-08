@@ -16,14 +16,14 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.beangle.style.maven.ws
+package org.beangle.style.maven
 
 import java.io.File
-
 import org.apache.maven.plugin.AbstractMojo
-import org.apache.maven.plugins.annotations.{ Mojo, Parameter, LifecyclePhase, ResolutionScope }
+import org.apache.maven.plugins.annotations.{ Mojo, Parameter }
 import org.apache.maven.project.MavenProject
-import org.beangle.style.maven.util.Files./
+import org.beangle.style.util.Files./
+import org.beangle.style.core.{ DefaultWhiteSpaceFormater, WhiteSpaceFormater }
 
 @Mojo(name = "ws-format")
 class FormatSpaceMojo extends AbstractMojo {
@@ -32,7 +32,7 @@ class FormatSpaceMojo extends AbstractMojo {
   private var project: MavenProject = _
 
   def execute(): Unit = {
-    val builder = new FormaterBuilder()
+    val builder = DefaultWhiteSpaceFormater.newBuilder()
     var tabLength = System.getProperty("tablength")
     if (null == tabLength) tabLength = "2"
     builder.enableTab2space(Integer.parseInt(tabLength)).enableTrimTrailingWhiteSpace().insertFinalNewline()
@@ -67,10 +67,10 @@ class FormatSpaceMojo extends AbstractMojo {
     }
   }
 
-  private def format(path: String, formater: Formater, ext: Option[String]): Unit = {
+  private def format(path: String, formater: WhiteSpaceFormater, ext: Option[String]): Unit = {
     if (new File(path).exists()) {
       println(s"formating ${path} ...")
-      Formater.format(formater, new File(path), ext)
+      WhiteSpaceFormater.format(formater, new File(path), ext)
     }
   }
 }

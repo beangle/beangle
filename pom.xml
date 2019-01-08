@@ -3,7 +3,7 @@
   <groupId>org.beangle</groupId>
   <artifactId>beangle</artifactId>
   <packaging>pom</packaging>
-  <version>25.1</version>
+  <version>25.2</version>
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
@@ -41,24 +41,24 @@
     <organization.slogan>Beangle, Agile Development Scaffold and Toolkits.</organization.slogan>
     <downloadJavadocs>false</downloadJavadocs>
     <java.version>1.8</java.version>
-    <beangle.version>25.1</beangle.version>
+    <beangle.version>25.2</beangle.version>
 
     <mvn.compiler.version>3.8.0</mvn.compiler.version>
-    <mvn.deploy.version>2.8.2</mvn.deploy.version>
+    <mvn.deploy.version>3.0.0-M1</mvn.deploy.version>
     <mvn.clean.version>3.1.0</mvn.clean.version>
-    <mvn.install.version>2.5.2</mvn.install.version>
+    <mvn.install.version>3.0.0-M1</mvn.install.version>
     <mvn.javadoc.version>3.0.1</mvn.javadoc.version>
     <mvn.source.version>3.0.1</mvn.source.version>
-    <mvn.jar.version>3.1.0</mvn.jar.version>
+    <mvn.jar.version>3.1.1</mvn.jar.version>
     <mvn.war.version>3.2.2</mvn.war.version>
     <mvn.license.version>3.0</mvn.license.version>
     <mvn.release.version>2.5.3</mvn.release.version>
-    <mvn.surefire.version>2.22.1</mvn.surefire.version>
-    <mvn.surefire.report.version>2.22.1</mvn.surefire.report.version>
+    <mvn.surefire.version>3.0.0-M3</mvn.surefire.version>
+    <mvn.surefire.report.version>3.0.0-M3</mvn.surefire.report.version>
     <mvn.checkstyle.version>3.0.0</mvn.checkstyle.version>
-    <mvn.bundle.version>3.5.0</mvn.bundle.version>
+    <mvn.bundle.version>4.1.0</mvn.bundle.version>
     <mvn.gpg.version>1.6</mvn.gpg.version>
-    <mvn.scm.gitprovider.version>1.9.5</mvn.scm.gitprovider.version>
+    <mvn.scm.gitprovider.version>1.11.1</mvn.scm.gitprovider.version>
     <mvn.eclipse.version>2.10</mvn.eclipse.version>
     <mvn.site.version>3.7.1</mvn.site.version>
     <mvn.project.info.version>2.9</mvn.project.info.version>
@@ -247,6 +247,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.]]>
             <instructions>
               <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
               <Bundle-Version>${project.version}</Bundle-Version>
+              <Bundle-Name>${project.artifactId}</Bundle-Name>
               <Export-Package>!${bundle.namespace}*internal*,${bundle.namespace}.*;version="${project.version}"</Export-Package>
               <Private-Package>${bundle.namespace}*internal*</Private-Package>
               <Import-Package>*;resolution:=optional</Import-Package>
