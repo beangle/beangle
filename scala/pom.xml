@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>25.3-SNAPSHOT</version>
+    <version>26.0-SNAPSHOT</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
@@ -11,12 +11,17 @@
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.12.8</scala.version>
-    <scala.binary.version>2.12</scala.binary.version>
-    <scalatest.version>3.0.5</scalatest.version>
-    <scalaxml.version>1.1.1</scalaxml.version>
+    <scala.version>2.13.0-RC2</scala.version>
+    <scala.epoch>2.13.0-RC2</scala.epoch>
+    <scalatest.version>3.1.0-SNAP11</scalatest.version>
+    <scalatest.junit.version>1.0.0-SNAP7</scalatest.junit.version>
+    <scalaxml.version>1.2.0</scalaxml.version>
+    <scala.zinc.version>1.3.0-M6</scala.zinc.version>
+
     <msgpack.version>0.8.13</msgpack.version>
-    <mvn.scala.compiler.version>3.4.4</mvn.scala.compiler.version>
+
+    <mvn.scalor.version>1.5.0.20190502185130</mvn.scalor.version>
+    <mvn.scala.compiler.version>4.0.1</mvn.scala.compiler.version>
     <mvn.scalariform.version>0.1.4</mvn.scalariform.version>
   </properties>
 
@@ -24,13 +29,18 @@
     <dependencies>
       <dependency>
         <groupId>org.scalatest</groupId>
-        <artifactId>scalatest_2.12</artifactId>
+        <artifactId>scalatest_${scala.epoch}</artifactId>
         <version>${scalatest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
+        <groupId>org.scalatestplus</groupId>
+        <artifactId>scalatestplus-junit_${scala.epoch}</artifactId>
+        <version>${scalatest.junit.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.scala-lang.modules</groupId>
-        <artifactId>scala-xml_2.12</artifactId>
+        <artifactId>scala-xml_${scala.epoch}</artifactId>
         <version>${scalaxml.version}</version>
         <scope>provided</scope>
       </dependency>
@@ -104,7 +114,11 @@
     </dependency>
     <dependency>
       <groupId>org.scalatest</groupId>
-      <artifactId>scalatest_2.12</artifactId>
+      <artifactId>scalatest_${scala.epoch}</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.scalatestplus</groupId>
+      <artifactId>scalatestplus-junit_${scala.epoch}</artifactId>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -117,39 +131,67 @@
   </dependencies>
 
   <build>
-    <sourceDirectory>src/main/scala</sourceDirectory>
-    <testSourceDirectory>src/test/scala</testSourceDirectory>
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>net.alchim31.maven</groupId>
-          <artifactId>scala-maven-plugin</artifactId>
-          <version>${mvn.scala.compiler.version}</version>
+          <groupId>com.carrotgarden.maven</groupId>
+          <artifactId>scalor-maven-plugin_2.12</artifactId>
+          <version>${mvn.scalor.version}</version>
+          <configuration>
+            <zincLogSourcesList>false</zincLogSourcesList>
+            <zincLogProjectClassPath>false</zincLogProjectClassPath>
+            <zincLogCompilerClassPath>false</zincLogCompilerClassPath>
+            <zincLogCompilerPluginList>false</zincLogCompilerPluginList>
+            <zincLogCompilerOptions>false</zincLogCompilerOptions>
+            <zincOptionsJava>
+              -deprecation
+              -encoding
+              ${project.build.sourceEncoding}
+              -source
+              ${java.version}
+              -target
+              ${java.version}
+            </zincOptionsJava>
+
+            <zincOptionsScala>
+              -encoding
+              ${project.build.sourceEncoding}
+              -target:jvm-1.8
+              -Xmaxerrs
+              10
+              -feature
+              -unchecked
+              -deprecation
+              -language:higherKinds
+              -Dkp:genAsciiNames=true
+              -Dscalor.artifact=${project.artifactId}
+              -compileorder:Mixed
+            </zincOptionsScala>
+
+            <defineBridge>
+              <dependency>
+                <groupId>org.scala-sbt</groupId>
+                <artifactId>compiler-bridge_2.13</artifactId>
+                <version>${scala.zinc.version}</version>
+              </dependency>
+            </defineBridge>
+
+            <defineCompiler>
+              <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-compiler</artifactId>
+                <version>${scala.version}</version>
+              </dependency>
+            </defineCompiler>
+          </configuration>
           <executions>
             <execution>
               <goals>
-                <goal>compile</goal>
-                <goal>testCompile</goal>
+                <goal>compile-main</goal>
+                <goal>compile-test</goal>
               </goals>
             </execution>
           </executions>
-          <configuration>
-            <scalaVersion>${scala.version}</scalaVersion>
-            <scalaCompatVersion>${scala.binary.version}</scalaCompatVersion>
-            <source>${java.version}</source>
-            <target>${java.version}</target>
-            <encoding>${project.build.sourceEncoding}</encoding>
-            <args>
-              <arg>-deprecation</arg>
-              <arg>-unchecked</arg>
-              <arg>-feature</arg>
-              <arg>-target:jvm-1.8</arg>
-            </args>
-            <jvmArgs>
-              <jvmArg>-Xms200m</jvmArg>
-              <jvmArg>-Xmx1024m</jvmArg>
-            </jvmArgs>
-          </configuration>
         </plugin>
 
         <plugin>
@@ -199,6 +241,19 @@
     </pluginManagement>
 
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+          <skipMain>true</skipMain>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.carrotgarden.maven</groupId>
+        <artifactId>scalor-maven-plugin_2.12</artifactId>
+      </plugin>
 
       <plugin>
         <groupId>org.apache.felix</groupId>
@@ -254,11 +309,6 @@
             <include>**/*Test.class</include>
           </includes>
         </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>net.alchim31.maven</groupId>
-        <artifactId>scala-maven-plugin</artifactId>
       </plugin>
 
       <plugin>
@@ -321,18 +371,6 @@
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>${mvn.project.info.version}</version>
-      </plugin>
-
-      <plugin>
-        <groupId>net.alchim31.maven</groupId>
-        <artifactId>scala-maven-plugin</artifactId>
-        <version>${mvn.scala.compiler.version}</version>
-        <configuration>
-          <jvmArgs>
-            <jvmArg>-Xms64m</jvmArg>
-            <jvmArg>-Xmx1024m</jvmArg>
-          </jvmArgs>
-        </configuration>
       </plugin>
 
       <plugin>

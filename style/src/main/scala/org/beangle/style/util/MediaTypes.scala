@@ -18,27 +18,26 @@
  */
 package org.beangle.style.util
 
-import javax.activation.MimeType
 import scala.collection.Seq
 
-object MimeTypes {
+object MediaTypes {
 
-  def main(args: Array[String]) {
-    println(readMimeTypes());
+  def main(args: Array[String]): Unit = {
+    println(readMediaTypes())
   }
 
-  private val types: Map[String, MimeType] = readMimeTypes()
+  private val types: Map[String, MediaType] = readMediaTypes()
 
-  private def readMimeTypes(): Map[String, MimeType] = {
+  private def readMediaTypes(): Map[String, MediaType] = {
     val me = getClass.getClassLoader
     val url = me.getResource("org/beangle/style/text.types")
     if (null == url) return Map.empty
-    val buf = new collection.mutable.HashMap[String, MimeType]
+    val buf = new collection.mutable.HashMap[String, MediaType]
     Files.readLines(url.openStream(), Charsets.UTF_8) foreach { line =>
       if (Strings.isNotBlank(line) && !line.startsWith("#")) {
         val mimetypeStr = Strings.substringBetween(line, "=", "exts").trim
         assert(!buf.contains(mimetypeStr), "duplicate mime type:" + mimetypeStr)
-        val mimetype = new MimeType(mimetypeStr)
+        val mimetype = new MediaType(mimetypeStr)
         buf.put(mimetypeStr, mimetype)
 
         val exts = Strings.substringAfter(line, "exts").trim.substring(1)
@@ -55,26 +54,32 @@ object MimeTypes {
     buf.toMap
   }
 
-  def getMimeType(ext: String, defaultValue: MimeType): MimeType = {
-    types.get(ext).getOrElse(defaultValue)
+  def get(ext: String, defaultValue: MediaType): MediaType = {
+    types.getOrElse(ext, defaultValue)
   }
 
-  def getMimeType(ext: String): Option[MimeType] = {
+  def get(ext: String): Option[MediaType] = {
     types.get(ext)
   }
 
-  def parse(str: String): Seq[MimeType] = {
+  def parse(str: String): Seq[MediaType] = {
     if (null == str) return Seq.empty
 
-    val mimeTypes = new collection.mutable.ListBuffer[MimeType]
+    val mediaTypes = new collection.mutable.ListBuffer[MediaType]
     Strings.split(str, ',') foreach { token =>
       val commaIndex = token.indexOf(";")
       val mimetype = if (commaIndex > -1) token.substring(0, commaIndex).trim else token.trim
       types.get(mimetype) match {
-        case Some(mt) => mimeTypes += mt
-        case None     => new MimeType(mimetype)
+        case Some(mt) => mediaTypes += mt
+        case None => new MediaType(mimetype)
       }
     }
-    mimeTypes.toList
+    mediaTypes.toList
+  }
+}
+
+class MediaType(val primaryType: String, val subType: String) {
+  def this(pt: String) {
+    this(pt, "*")
   }
 }
