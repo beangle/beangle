@@ -192,6 +192,7 @@
                 <goal>register-test</goal>
                 <goal>compile-main</goal>
                 <goal>compile-test</goal>
+                <goal>scaladoc-main</goal>
               </goals>
             </execution>
           </executions>
@@ -327,37 +328,6 @@
 
     </plugins>
   </build>
-
-  <profiles>
-    <profile>
-      <id>beangle-scala-release</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>net.alchim31.maven</groupId>
-            <artifactId>scala-maven-plugin</artifactId>
-            <version>${mvn.scala.compiler.version}</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>doc-jar</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <scalaVersion>${scala.version}</scalaVersion>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 
   <reporting>
     <plugins>
