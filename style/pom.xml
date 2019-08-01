@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>25.3-SNAPSHOT</version>
+    <version>26.0-SNAPSHOT</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>style-maven-plugin</artifactId>
@@ -13,11 +13,14 @@
   <name>Beangle Code Style Maven Plugin</name>
 
   <properties>
+    <scala.version>2.13.0</scala.version>
+    <scala.epoch>2.13</scala.epoch>
+    <scala.zinc.version>1.3.0-M8</scala.zinc.version>
+
+    <maven.version>3.6.0</maven.version>
+    <maven.plugin.version>3.6.0</maven.plugin.version>
     <slf4j.version>1.7.25</slf4j.version>
-    <maven.version>3.5.4</maven.version>
-    <scala.version>2.12.8</scala.version>
-    <scala.binary.version>2.12</scala.binary.version>
-    <mvn.scala.compiler.version>3.4.4</mvn.scala.compiler.version>
+    <mvn.scalor.version>1.5.0.20190502185130</mvn.scalor.version>
   </properties>
 
   <prerequisites>
@@ -25,11 +28,11 @@
   </prerequisites>
 
   <dependencies>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
@@ -64,39 +67,76 @@
   </dependencies>
 
   <build>
-    <sourceDirectory>src/main/scala</sourceDirectory>
-    <testSourceDirectory>src/test/scala</testSourceDirectory>
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>net.alchim31.maven</groupId>
-          <artifactId>scala-maven-plugin</artifactId>
-          <version>${mvn.scala.compiler.version}</version>
+          <groupId>com.carrotgarden.maven</groupId>
+          <artifactId>scalor-maven-plugin_2.12</artifactId>
+          <version>${mvn.scalor.version}</version>
+          <configuration>
+            <zincLogSourcesList>false</zincLogSourcesList>
+            <zincLogProjectClassPath>false</zincLogProjectClassPath>
+            <zincLogCompilerClassPath>false</zincLogCompilerClassPath>
+            <zincLogCompilerPluginList>false</zincLogCompilerPluginList>
+            <zincLogCompilerOptions>false</zincLogCompilerOptions>
+            <zincLogActiveLevel>info</zincLogActiveLevel>
+            <linkerLogBuildStats>true</linkerLogBuildStats>
+            <linkerLogUpdateResult>true</linkerLogUpdateResult>
+            <envconfLogConfig>true</envconfLogConfig>
+            <eclipseLogPersistInstall>false</eclipseLogPersistInstall>
+            <eclipseLogPersistSettings>false</eclipseLogPersistSettings>
+
+            <zincOptionsJava>
+              -deprecation
+              -encoding
+              ${project.build.sourceEncoding}
+              -source
+              ${java.version}
+              -target
+              ${java.version}
+            </zincOptionsJava>
+
+            <zincOptionsScala>
+              -encoding
+              ${project.build.sourceEncoding}
+              -target:jvm-1.8
+              -Xmaxerrs
+              10
+              -feature
+              -unchecked
+              -deprecation
+              -language:higherKinds
+              -Dkp:genAsciiNames=true
+              -Dscalor.artifact=${project.artifactId}
+              -compileorder:Mixed
+            </zincOptionsScala>
+
+            <defineBridge>
+              <dependency>
+                <groupId>org.scala-sbt</groupId>
+                <artifactId>compiler-bridge_2.13</artifactId>
+                <version>${scala.zinc.version}</version>
+              </dependency>
+            </defineBridge>
+
+            <defineCompiler>
+              <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-compiler</artifactId>
+                <version>${scala.version}</version>
+              </dependency>
+            </defineCompiler>
+          </configuration>
           <executions>
             <execution>
               <goals>
-                <goal>compile</goal>
-                <goal>testCompile</goal>
+                <goal>register-main</goal>
+                <goal>register-test</goal>
+                <goal>compile-main</goal>
+                <goal>compile-test</goal>
               </goals>
             </execution>
           </executions>
-          <configuration>
-            <scalaVersion>${scala.version}</scalaVersion>
-            <scalaCompatVersion>${scala.binary.version}</scalaCompatVersion>
-            <source>${java.version}</source>
-            <target>${java.version}</target>
-            <encoding>${project.build.sourceEncoding}</encoding>
-            <args>
-              <arg>-deprecation</arg>
-              <arg>-unchecked</arg>
-              <arg>-feature</arg>
-              <arg>-target:jvm-1.8</arg>
-            </args>
-            <jvmArgs>
-              <jvmArg>-Xms200m</jvmArg>
-              <jvmArg>-Xmx1024m</jvmArg>
-            </jvmArgs>
-          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -131,6 +171,21 @@
     </pluginManagement>
 
     <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+          <skipMain>true</skipMain>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.carrotgarden.maven</groupId>
+        <artifactId>scalor-maven-plugin_2.12</artifactId>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
@@ -173,11 +228,6 @@
       </plugin>
 
       <plugin>
-        <groupId>net.alchim31.maven</groupId>
-        <artifactId>scala-maven-plugin</artifactId>
-      </plugin>
-
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
       </plugin>
@@ -185,7 +235,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
-        <version>3.4</version>
+        <version>${maven.plugin.version}</version>
         <configuration>
           <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
         </configuration>
@@ -222,7 +272,7 @@
           <plugin>
             <groupId>net.alchim31.maven</groupId>
             <artifactId>scala-maven-plugin</artifactId>
-            <version>${mvn.scala.compiler.version}</version>
+            <version>4.0.1</version>
             <executions>
               <execution>
                 <goals>

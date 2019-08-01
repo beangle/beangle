@@ -3,7 +3,7 @@
   <groupId>org.beangle</groupId>
   <artifactId>beangle</artifactId>
   <packaging>pom</packaging>
-  <version>25.3-SNAPSHOT</version>
+  <version>26.0-SNAPSHOT</version>
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
@@ -40,14 +40,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <organization.slogan>Beangle, Agile Development Scaffold and Toolkits.</organization.slogan>
     <downloadJavadocs>false</downloadJavadocs>
-    <java.version>1.8</java.version>
-    <beangle.version>25.2</beangle.version>
+    <java.version>11</java.version>
+    <beangle.version>26.0-SNAPSHOT</beangle.version>
 
-    <mvn.compiler.version>3.8.0</mvn.compiler.version>
+    <mvn.compiler.version>3.8.1</mvn.compiler.version>
     <mvn.deploy.version>3.0.0-M1</mvn.deploy.version>
     <mvn.clean.version>3.1.0</mvn.clean.version>
     <mvn.install.version>3.0.0-M1</mvn.install.version>
-    <mvn.javadoc.version>3.0.1</mvn.javadoc.version>
+    <mvn.javadoc.version>3.1.0</mvn.javadoc.version>
     <mvn.source.version>3.0.1</mvn.source.version>
     <mvn.jar.version>3.1.1</mvn.jar.version>
     <mvn.war.version>3.2.2</mvn.war.version>
@@ -56,7 +56,7 @@
     <mvn.surefire.version>3.0.0-M3</mvn.surefire.version>
     <mvn.surefire.report.version>3.0.0-M3</mvn.surefire.report.version>
     <mvn.checkstyle.version>3.0.0</mvn.checkstyle.version>
-    <mvn.bundle.version>4.1.0</mvn.bundle.version>
+    <mvn.bundle.version>4.2.0</mvn.bundle.version>
     <mvn.gpg.version>1.6</mvn.gpg.version>
     <mvn.scm.gitprovider.version>1.11.1</mvn.scm.gitprovider.version>
     <mvn.eclipse.version>2.10</mvn.eclipse.version>
@@ -109,6 +109,7 @@
           <configuration>
             <source>${java.version}</source>
             <target>${java.version}</target>
+            <release>${java.version}</release>
             <encoding>${project.build.sourceEncoding}</encoding>
           </configuration>
         </plugin>

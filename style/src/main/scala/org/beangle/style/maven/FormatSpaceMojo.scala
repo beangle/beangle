@@ -38,24 +38,24 @@ class FormatSpaceMojo extends AbstractMojo {
     builder.enableTab2space(Integer.parseInt(tabLength)).enableTrimTrailingWhiteSpace().insertFinalNewline()
     val formater = builder.build()
 
-    var dir = System.getProperty("dir")
-    var ext = Option(System.getProperty("ext"))
+    val dir = System.getProperty("dir")
+    val ext = Option(System.getProperty("ext"))
 
     if (null == dir) {
-      import collection.JavaConverters.asScalaBuffer
-      asScalaBuffer(project.getCompileSourceRoots) foreach { resource =>
+      import scala.jdk.CollectionConverters._
+      project.getCompileSourceRoots.asScala foreach { resource =>
         format(resource, formater, ext)
       }
 
-      asScalaBuffer(project.getTestCompileSourceRoots) foreach { resource =>
+      project.getTestCompileSourceRoots.asScala foreach { resource =>
         format(resource, formater, ext)
       }
 
-      asScalaBuffer(project.getResources) foreach { resource =>
+      project.getResources.asScala foreach { resource =>
         format(resource.getDirectory, formater, ext)
       }
 
-      asScalaBuffer(project.getTestResources) foreach { resource =>
+      project.getTestResources.asScala foreach { resource =>
         format(resource.getDirectory, formater, ext)
       }
     } else {
@@ -69,7 +69,7 @@ class FormatSpaceMojo extends AbstractMojo {
 
   private def format(path: String, formater: WhiteSpaceFormater, ext: Option[String]): Unit = {
     if (new File(path).exists()) {
-      println(s"formating ${path} ...")
+      println(s"formating $path ...")
       WhiteSpaceFormater.format(formater, new File(path), ext)
     }
   }
