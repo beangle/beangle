@@ -29,18 +29,18 @@
     <dependencies>
       <dependency>
         <groupId>org.scalatest</groupId>
-        <artifactId>scalatest_${scala.epoch}</artifactId>
+        <artifactId>scalatest_2.13</artifactId>
         <version>${scalatest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.scalatestplus</groupId>
-        <artifactId>scalatestplus-junit_${scala.epoch}</artifactId>
+        <artifactId>scalatestplus-junit_2.13</artifactId>
         <version>${scalatest.junit.version}</version>
       </dependency>
       <dependency>
         <groupId>org.scala-lang.modules</groupId>
-        <artifactId>scala-xml_${scala.epoch}</artifactId>
+        <artifactId>scala-xml_2.13</artifactId>
         <version>${scalaxml.version}</version>
         <scope>provided</scope>
       </dependency>
@@ -118,7 +118,7 @@
     </dependency>
     <dependency>
       <groupId>org.scalatestplus</groupId>
-      <artifactId>scalatestplus-junit_${scala.epoch}</artifactId>
+      <artifactId>scalatestplus-junit_2.13</artifactId>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -143,6 +143,7 @@
             <zincLogCompilerClassPath>false</zincLogCompilerClassPath>
             <zincLogCompilerPluginList>false</zincLogCompilerPluginList>
             <zincLogCompilerOptions>false</zincLogCompilerOptions>
+            <zincLogActiveLevel>info</zincLogActiveLevel>
             <zincOptionsJava>
               -deprecation
               -encoding
@@ -187,6 +188,8 @@
           <executions>
             <execution>
               <goals>
+                <goal>register-main</goal>
+                <goal>register-test</goal>
                 <goal>compile-main</goal>
                 <goal>compile-test</goal>
               </goals>
