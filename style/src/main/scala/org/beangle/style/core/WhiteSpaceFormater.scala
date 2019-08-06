@@ -18,8 +18,8 @@
  */
 package org.beangle.style.core
 
-import java.io.{ File, FileInputStream, FileOutputStream }
-import org.beangle.style.util.{ Strings, Files, Charsets, MimeTypes }
+import java.io.{File, FileInputStream, FileOutputStream}
+import org.beangle.style.util.{Strings, Files, Charsets, MediaTypes}
 import org.beangle.style.util.Charsets
 import org.beangle.style.util.Files./
 
@@ -30,7 +30,7 @@ object EOF {
 
 object WhiteSpaceFormater {
 
-  def format(formater: WhiteSpaceFormater, dir: File, ext: Option[String]) {
+  def format(formater: WhiteSpaceFormater, dir: File, ext: Option[String]): Unit = {
     if (dir.isFile) {
       ext match {
         case Some(f) =>
@@ -38,8 +38,8 @@ object WhiteSpaceFormater {
         case None => {
           val fileExt = Strings.substringAfterLast(dir.getName, ".")
 
-          MimeTypes.getMimeType(fileExt) foreach { m =>
-            if (m.getPrimaryType == "text" || fileExt == "xml") formater.format(dir)
+          MediaTypes.get(fileExt) foreach { m =>
+            if (m.primaryType == "text" || fileExt == "xml") formater.format(dir)
           }
         }
       }
@@ -50,11 +50,11 @@ object WhiteSpaceFormater {
     }
   }
 
-  def check(dir: File, warns: collection.mutable.Buffer[String]) {
+  def check(dir: File, warns: collection.mutable.Buffer[String]): Unit = {
     if (dir.isFile) {
       val fileExt = Strings.substringAfterLast(dir.getName, ".")
-      MimeTypes.getMimeType(fileExt) foreach { m =>
-        if (m.getPrimaryType == "text" || fileExt == "xml") {
+      MediaTypes.get(fileExt) foreach { m =>
+        if (m.primaryType == "text" || fileExt == "xml") {
           if (!check(dir)) {
             warns += dir.getAbsolutePath
           }
@@ -93,6 +93,7 @@ trait WhiteSpaceFormater {
 }
 
 object DefaultWhiteSpaceFormater {
+
   trait LineProcessor {
     def process(line: String): String
   }
@@ -114,6 +115,7 @@ object DefaultWhiteSpaceFormater {
   def newBuilder(): Builder = {
     new Builder
   }
+
   class Builder {
     var tablength = 2
     var eof = EOF.LF
@@ -125,10 +127,12 @@ object DefaultWhiteSpaceFormater {
       trimTrailingWhiteSpace = true
       this
     }
+
     def disableTrimTrailingWhiteSpace(): this.type = {
       trimTrailingWhiteSpace = false
       this
     }
+
     def enableTab2space(tablength: Int): this.type = {
       assert(1 <= tablength && tablength <= 8, "tablength should in [1,8]")
       this.tablength = tablength
@@ -159,12 +163,13 @@ object DefaultWhiteSpaceFormater {
       new DefaultWhiteSpaceFormater(eof, processors.toList, fixLast)
     }
   }
+
 }
 
 import DefaultWhiteSpaceFormater._
 
 class DefaultWhiteSpaceFormater(val eof: String = EOF.LF, lineProcessors: List[LineProcessor],
-  val fixLast: Boolean)
+                                val fixLast: Boolean)
   extends WhiteSpaceFormater {
 
   def format(str: String): String = {

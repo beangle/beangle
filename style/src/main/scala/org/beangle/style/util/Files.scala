@@ -43,7 +43,7 @@ object Files {
       close(input)
     }
   }
-  
+
   def readLines(input: InputStream, charset: Charset = Charsets.UTF_8): List[String] = {
     readLines(new InputStreamReader(input, charset))
   }
@@ -77,7 +77,7 @@ object Files {
     if (reader.isInstanceOf[BufferedReader]) reader.asInstanceOf[BufferedReader] else new BufferedReader(reader)
   }
 
-  def write(data: String, output: OutputStream, charset: Charset = null) {
+  def write(data: String, output: OutputStream, charset: Charset = null) : Unit ={
     if (data != null) {
       if (charset == null)
         output.write(data.getBytes())
@@ -86,7 +86,7 @@ object Files {
     }
   }
 
-  def close(objs: AutoCloseable*) {
+  def close(objs: AutoCloseable*): Unit = {
     objs foreach { obj =>
       try {
         if (obj != null) obj.close()

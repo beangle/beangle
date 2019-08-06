@@ -35,33 +35,33 @@ class WSCheckMojo extends AbstractMojo {
   private var project: MavenProject = _
 
   def execute(): Unit = {
-    import scala.collection.JavaConverters.asScalaBuffer
+    import scala.jdk.CollectionConverters._
     val warns = new ArrayBuffer[String]
-    asScalaBuffer(project.getCompileSourceRoots) foreach { resource =>
+    project.getCompileSourceRoots.asScala foreach { resource =>
       check(resource, warns)
     }
 
-    asScalaBuffer(project.getTestCompileSourceRoots) foreach { resource =>
+    project.getTestCompileSourceRoots.asScala foreach { resource =>
       check(resource, warns)
     }
 
-    asScalaBuffer(project.getResources) foreach { resource =>
+    project.getResources.asScala foreach { resource =>
       check(resource.getDirectory, warns)
     }
 
-    asScalaBuffer(project.getTestResources) foreach { resource =>
+    project.getTestResources.asScala foreach { resource =>
       check(resource.getDirectory, warns)
     }
-    if (!warns.isEmpty) {
+    if (warns.nonEmpty) {
       val files = warns.map(f => Strings.substringAfter(f, project.getBasedir.getAbsolutePath + /))
-      getLog().warn("Whitespace violations:\n" + files.mkString("\n"))
+      getLog.warn("Whitespace violations:\n" + files.mkString("\n"))
       throw new MojoExecutionException("Find violations")
     }
   }
 
   private def check(path: String, warns: Buffer[String]): Unit = {
     if (new File(path).exists() && !path.startsWith(project.getBasedir.getAbsolutePath + / + "target")) {
-      getLog.info(s"checking ${path} ...")
+      getLog.info(s"checking $path ...")
       WhiteSpaceFormater.check(new File(path), warns)
     }
   }

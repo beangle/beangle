@@ -18,12 +18,12 @@
  */
 package org.beangle.style.maven.stat
 
-import java.io.{ BufferedReader, File, Reader, InputStreamReader, FileInputStream }
+import java.io.{BufferedReader, File, Reader, InputStreamReader, FileInputStream}
 import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.project.MavenProject
-import org.apache.maven.plugins.annotations.{ Mojo, Parameter, LifecyclePhase, ResolutionScope }
-import org.beangle.style.util.{ Files, Strings }
-import org.beangle.style.util.MimeTypes
+import org.apache.maven.plugins.annotations.{Mojo, Parameter, LifecyclePhase, ResolutionScope}
+import org.beangle.style.util.{Files, Strings}
+import org.beangle.style.util.MediaTypes
 import org.beangle.style.util.Files./
 
 @Mojo(name = "loc", defaultPhase = LifecyclePhase.PREPARE_PACKAGE, requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME)
@@ -61,7 +61,7 @@ class LocMojo extends AbstractMojo {
   }
 
   private def count(dir: File, stats: collection.mutable.Map[String, Int]): Unit = {
-    if (!dir.exists()) return ;
+    if (!dir.exists()) return;
 
     if (dir.getName == "target") return
     if (dir.isFile) {
@@ -77,7 +77,7 @@ class LocMojo extends AbstractMojo {
         Files.close(reader)
         stats.get(fileExt) match {
           case Some(c) => stats.put(fileExt, c + loc)
-          case None    => stats.put(fileExt, loc)
+          case None => stats.put(fileExt, loc)
         }
       }
     } else {
@@ -92,9 +92,13 @@ class LocMojo extends AbstractMojo {
   }
 
   private def isText(fileExt: String): Boolean = {
-    MimeTypes.getMimeType(fileExt) match {
-      case Some(m) => (m.getPrimaryType == "text" || fileExt == "xml" || fileExt == "js")
-      case None    => false
+    MediaTypes.get(fileExt) match {
+      case Some(m) => (m.primaryType == "text" || fileExt == "xml" || fileExt == "js")
+      case None => false
     }
+  }
+
+  override def getPluginContext: java.util.Map[_, _] = {
+    super.getPluginContext
   }
 }
