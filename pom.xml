@@ -40,8 +40,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <organization.slogan>Beangle, Agile Development Scaffold and Toolkits.</organization.slogan>
     <downloadJavadocs>false</downloadJavadocs>
-    <java.version>8</java.version>
-    <beangle.version>26.1</beangle.version>
+    <java.version>11</java.version>
+    <beangle.version>26.2</beangle.version>
 
     <mvn.compiler.version>3.8.1</mvn.compiler.version>
     <mvn.deploy.version>3.0.0-M1</mvn.deploy.version>
