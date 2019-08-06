@@ -3,7 +3,7 @@
   <groupId>org.beangle</groupId>
   <artifactId>beangle</artifactId>
   <packaging>pom</packaging>
-  <version>26.0</version>
+  <version>26.1</version>
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
@@ -40,8 +40,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <organization.slogan>Beangle, Agile Development Scaffold and Toolkits.</organization.slogan>
     <downloadJavadocs>false</downloadJavadocs>
-    <java.version>11</java.version>
-    <beangle.version>26.0</beangle.version>
+    <java.version>8</java.version>
+    <beangle.version>26.1</beangle.version>
 
     <mvn.compiler.version>3.8.1</mvn.compiler.version>
     <mvn.deploy.version>3.0.0-M1</mvn.deploy.version>
@@ -68,10 +68,10 @@
     <servletapi.version>4.0.1</servletapi.version>
     <testng.version>6.11</testng.version>
     <junit.version>4.12</junit.version>
-    <mockito.version>2.22.0</mockito.version>
-    <h2.version>1.4.196</h2.version>
-    <hsqldb.version>2.4.0</hsqldb.version>
-    <postgresql.version>42.2.5</postgresql.version>
+    <mockito.version>3.0.0</mockito.version>
+    <h2.version>1.4.199</h2.version>
+    <hsqldb.version>2.5.0</hsqldb.version>
+    <postgresql.version>42.2.6</postgresql.version>
   </properties>
 
   <developers>
