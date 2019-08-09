@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>26.3</version>
+    <version>26.4</version>
   </parent>
   <groupId>org.beangle</groupId>
   <artifactId>beangle-java</artifactId>
@@ -86,6 +86,25 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-install-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${mvn.javadoc.version}</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <doclint>none</doclint>
+          <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+          <charset>UTF-8</charset>
+        </configuration>
       </plugin>
 
       <plugin>
@@ -242,49 +261,4 @@
       </plugin>
     </plugins>
   </reporting>
-
-  <profiles>
-    <profile>
-      <id>beangle-java-release</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
-
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${mvn.javadoc.version}</version>
-            <executions>
-              <execution>
-                <id>attach-javadocs</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <doclint>none</doclint>
-              <links>
-                <link>http://docs.oracle.com/javase/8/docs/api/</link>
-              </links>
-              <charset>UTF-8</charset>
-              <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
-              <docletArtifact>
-                <groupId>org.umlgraph</groupId>
-                <artifactId>doclet</artifactId>
-                <version>5.1</version>
-              </docletArtifact>
-              <additionalparam>-views</additionalparam>
-              <useStandardDocletOptions>true</useStandardDocletOptions>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>
