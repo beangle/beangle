@@ -3,7 +3,7 @@
   <groupId>org.beangle</groupId>
   <artifactId>beangle</artifactId>
   <packaging>pom</packaging>
-  <version>26.4-SNAPSHOT</version>
+  <version>26.4</version>
   <name>Beangle Software Parent</name>
   <inceptionYear>2005</inceptionYear>
   <description>
@@ -41,13 +41,13 @@
     <organization.slogan>Beangle, Agile Development Scaffold and Toolkits.</organization.slogan>
     <downloadJavadocs>false</downloadJavadocs>
     <java.version>11</java.version>
-    <beangle.version>26.3</beangle.version>
+    <beangle.version>26.4</beangle.version>
 
     <mvn.compiler.version>3.8.1</mvn.compiler.version>
     <mvn.deploy.version>3.0.0-M1</mvn.deploy.version>
     <mvn.clean.version>3.1.0</mvn.clean.version>
     <mvn.install.version>3.0.0-M1</mvn.install.version>
-    <mvn.javadoc.version>3.1.0</mvn.javadoc.version>
+    <mvn.javadoc.version>3.1.1</mvn.javadoc.version>
     <mvn.source.version>3.0.1</mvn.source.version>
     <mvn.jar.version>3.1.1</mvn.jar.version>
     <mvn.war.version>3.2.2</mvn.war.version>
