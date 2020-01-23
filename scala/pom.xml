@@ -3,25 +3,23 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>26.4</version>
+    <version>27.0</version>
   </parent>
-  <groupId>org.beangle</groupId>
   <artifactId>beangle-scala</artifactId>
   <packaging>pom</packaging>
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.13.0</scala.version>
+    <scala.version>2.13.1</scala.version>
     <scala.epoch>2.13</scala.epoch>
-    <scalatest.version>3.1.0-SNAP13</scalatest.version>
-    <scalatest.junit.version>1.0.0-SNAP9</scalatest.junit.version>
-    <scalaxml.version>1.2.0</scalaxml.version>
-    <scala.zinc.version>1.3.0-M8</scala.zinc.version>
+    <scalatest.version>3.1.0-M2</scalatest.version>
+    <scalatest.junit.version>1.0.0-M2</scalatest.junit.version>
+    <scalaxml.version>2.0.0-M1</scalaxml.version>
+    <scala.zinc.version>1.3.2</scala.zinc.version>
 
     <msgpack.version>0.8.13</msgpack.version>
 
     <mvn.scalor.version>1.5.0.20190502185130</mvn.scalor.version>
-    <mvn.scala.compiler.version>4.0.1</mvn.scala.compiler.version>
     <mvn.scalariform.version>0.1.4</mvn.scalariform.version>
   </properties>
 
@@ -37,6 +35,7 @@
         <groupId>org.scalatestplus</groupId>
         <artifactId>scalatestplus-junit_2.13</artifactId>
         <version>${scalatest.junit.version}</version>
+        <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.scala-lang.modules</groupId>
