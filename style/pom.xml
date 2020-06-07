@@ -15,11 +15,11 @@
   <properties>
     <scala.version>2.13.1</scala.version>
     <scala.epoch>2.13</scala.epoch>
-    <scala.zinc.version>1.3.2</scala.zinc.version>
+    <scala.zinc.version>1.3.5</scala.zinc.version>
 
     <maven.version>3.6.0</maven.version>
     <maven.plugin.version>3.6.0</maven.plugin.version>
-    <slf4j.version>1.7.25</slf4j.version>
+    <slf4j.version>2.0.0-alpha1</slf4j.version>
     <mvn.scalor.version>1.5.0.20190502185130</mvn.scalor.version>
   </properties>
 

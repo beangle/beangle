@@ -12,7 +12,7 @@
 
   <properties>
     <mvn.jxr.version>3.0.0</mvn.jxr.version>
-    <mvn.pmd.version>3.12.0</mvn.pmd.version>
+    <mvn.pmd.version>3.13.0</mvn.pmd.version>
     <mvn.cobertura.version>2.7</mvn.cobertura.version>
     <additionalparam>-Xdoclint:none</additionalparam>
   </properties>
