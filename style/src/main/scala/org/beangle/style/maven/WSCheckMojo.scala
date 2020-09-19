@@ -19,14 +19,16 @@
 package org.beangle.style.maven
 
 import java.io.File
-import scala.collection.mutable.{ ArrayBuffer, Buffer }
-import org.apache.maven.plugin.AbstractMojo
-import org.apache.maven.plugins.annotations.{ Mojo, Parameter, LifecyclePhase }
+
+import org.apache.maven.plugin.{AbstractMojo, MojoExecutionException}
+import org.apache.maven.plugins.annotations.{LifecyclePhase, Mojo, Parameter}
 import org.apache.maven.project.MavenProject
-import org.apache.maven.plugin.MojoExecutionException
-import org.beangle.style.util.Strings
-import org.beangle.style.util.Files./
 import org.beangle.style.core.WhiteSpaceFormater
+import org.beangle.style.util.Files./
+import org.beangle.style.util.Strings
+
+import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
 
 @Mojo(name = "ws-check", defaultPhase = LifecyclePhase.VERIFY, threadSafe = true)
 class WSCheckMojo extends AbstractMojo {
@@ -36,21 +38,24 @@ class WSCheckMojo extends AbstractMojo {
 
   def execute(): Unit = {
     import scala.jdk.CollectionConverters._
-    val warns = new ArrayBuffer[String]
+
+    val locs = new ArrayBuffer[String]
     project.getCompileSourceRoots.asScala foreach { resource =>
-      check(resource, warns)
+      check(resource, locs)
     }
-
     project.getTestCompileSourceRoots.asScala foreach { resource =>
-      check(resource, warns)
+      check(resource, locs)
     }
-
     project.getResources.asScala foreach { resource =>
-      check(resource.getDirectory, warns)
+      check(resource.getDirectory, locs)
     }
-
     project.getTestResources.asScala foreach { resource =>
-      check(resource.getDirectory, warns)
+      check(resource.getDirectory, locs)
+    }
+    val warns = new ArrayBuffer[String]
+    locs foreach { loc =>
+      getLog.info(s"checking $loc ...")
+      WhiteSpaceFormater.check(new File(loc), warns)
     }
     if (warns.nonEmpty) {
       val files = warns.map(f => Strings.substringAfter(f, project.getBasedir.getAbsolutePath + /))
@@ -59,10 +64,14 @@ class WSCheckMojo extends AbstractMojo {
     }
   }
 
-  private def check(path: String, warns: Buffer[String]): Unit = {
-    if (new File(path).exists() && !path.startsWith(project.getBasedir.getAbsolutePath + / + "target")) {
-      getLog.info(s"checking $path ...")
-      WhiteSpaceFormater.check(new File(path), warns)
+  private def check(path: String, dirs: mutable.Buffer[String]): Unit = {
+    val pathDir = new File(path)
+    if (pathDir.exists() && !path.startsWith(project.getBasedir.getAbsolutePath + / + "target")) {
+      val loc = pathDir.getCanonicalPath
+      if (!dirs.contains(loc)) {
+        dirs += loc
+      }
     }
   }
+
 }

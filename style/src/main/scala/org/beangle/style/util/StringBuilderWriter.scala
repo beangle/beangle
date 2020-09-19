@@ -28,7 +28,7 @@ class StringBuilderWriter(val builder: StringBuilder) extends Writer with Serial
     * Construct a new {@link StringBuilder} instance with the specified capacity.
     * @param capacity The initial capacity of the underlying { @link StringBuilder}
     */
-  def this(capacity: Int = 16) {
+  def this(capacity: Int = 16) = {
     this(new StringBuilder(capacity))
   }
 
@@ -84,7 +84,7 @@ class StringBuilderWriter(val builder: StringBuilder) extends Writer with Serial
   }
 
   /**
-    * Returns {@link StringBuilder#toString()}.
+    * Returns {@link StringBuilder# toString ( )}.
     */
   override def toString(): String = builder.toString
 }
