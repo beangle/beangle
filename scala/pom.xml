@@ -3,18 +3,18 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>28.0</version>
+    <version>28.1</version>
   </parent>
   <artifactId>beangle-scala</artifactId>
   <packaging>pom</packaging>
   <name>Beangle Scala Parent</name>
 
   <properties>
-    <scala.version>2.13.3</scala.version>
+    <scala.version>2.13.4</scala.version>
     <scala.epoch>2.13</scala.epoch>
-    <scalatest.version>3.2.2</scalatest.version>
+    <scalatest.version>3.2.3</scalatest.version>
     <scalatest.junit.version>1.0.0-M2</scalatest.junit.version>
-    <scalaxml.version>2.0.0-M1</scalaxml.version>
+    <scalaxml.version>2.0.0-M3</scalaxml.version>
 
     <msgpack.version>0.8.13</msgpack.version>
 
