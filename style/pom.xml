@@ -5,16 +5,15 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>28.0</version>
+    <version>28.1</version>
   </parent>
   <artifactId>style-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
   <name>Beangle Code Style Maven Plugin</name>
 
   <properties>
-    <scala.version>2.13.3</scala.version>
+    <scala.version>2.13.4</scala.version>
     <scala.epoch>2.13</scala.epoch>
-    <scala.zinc.version>1.4.0-M8</scala.zinc.version>
 
     <maven.version>3.6.0</maven.version>
     <maven.plugin.version>3.6.0</maven.plugin.version>
@@ -99,7 +98,6 @@
               <jvmArg>-Xmx1024m</jvmArg>
             </jvmArgs>
             <recompileMode>incremental</recompileMode>
-            <useZincServer>true</useZincServer>
           </configuration>
         </plugin>
         <plugin>
@@ -108,7 +106,6 @@
           <version>${mvn.javadoc.version}</version>
           <configuration>
             <skip>true</skip>
-            <skipMain>true</skipMain>
           </configuration>
         </plugin>
       </plugins>
