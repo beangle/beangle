@@ -117,7 +117,7 @@
     </dependency>
     <dependency>
       <groupId>org.scalatestplus</groupId>
-      <artifactId>scalatestplus-junit_2.13</artifactId>
+      <artifactId>junit-4-13_2.13</artifactId>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
