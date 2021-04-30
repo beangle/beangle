@@ -5,20 +5,20 @@
   <parent>
     <groupId>org.beangle</groupId>
     <artifactId>beangle</artifactId>
-    <version>28.2-SNAPSHOT</version>
+    <version>28.2</version>
   </parent>
   <artifactId>style-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
   <name>Beangle Code Style Maven Plugin</name>
 
   <properties>
-    <scala.version>2.13.4</scala.version>
+    <scala.version>2.13.5</scala.version>
     <scala.epoch>2.13</scala.epoch>
 
     <maven.version>3.6.0</maven.version>
     <maven.plugin.version>3.6.0</maven.plugin.version>
     <slf4j.version>2.0.0-alpha1</slf4j.version>
-    <scala-maven-plugin.version>4.4.0</scala-maven-plugin.version>
+    <scala-maven-plugin.version>4.4.1</scala-maven-plugin.version>
   </properties>
 
   <prerequisites>
